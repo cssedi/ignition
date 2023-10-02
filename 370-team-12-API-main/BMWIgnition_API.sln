@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BMWIgnition_API", "BMWIgnition_API.csproj", "{F60A9908-CB27-4092-882A-5CF665766C9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F60A9908-CB27-4092-882A-5CF665766C9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F60A9908-CB27-4092-882A-5CF665766C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F60A9908-CB27-4092-882A-5CF665766C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F60A9908-CB27-4092-882A-5CF665766C9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA28452F-05EA-438F-8818-56373DE5E3CF}
+	EndGlobalSection
+EndGlobal

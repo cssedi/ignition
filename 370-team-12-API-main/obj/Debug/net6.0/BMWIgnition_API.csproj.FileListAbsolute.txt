@@ -1,0 +1,330 @@
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\BMWIgnition_API.csproj.AssemblyReference.cache
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\BMWIgnition_API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\BMWIgnition_API.AssemblyInfoInputs.cache
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\BMWIgnition_API.AssemblyInfo.cs
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\BMWIgnition_API.csproj.CoreCompileInputs.cache
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\BMWIgnition_API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\BMWIgnition_API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\appsettings.json
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\BMWIgnition_API.exe
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\BMWIgnition_API.deps.json
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\BMWIgnition_API.runtimeconfig.json
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\BMWIgnition_API.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\BMWIgnition_API.pdb
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Humanizer.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\MailKit.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\MimeKit.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\QXZ3N4M\Downloads\API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\staticwebassets\msbuild.BMWIgnition_API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\staticwebassets\msbuild.build.BMWIgnition_API.props
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BMWIgnition_API.props
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BMWIgnition_API.props
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\scopedcss\bundle\BMWIgnition_API.styles.css
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\BMWIgnition_API.csproj.CopyComplete
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\BMWIgnition_API.dll
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\refint\BMWIgnition_API.dll
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\BMWIgnition_API.pdb
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\BMWIgnition_API.genruntimeconfig.cache
+C:\Users\QXZ3N4M\Downloads\API\obj\Debug\net6.0\ref\BMWIgnition_API.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.csproj.AssemblyReference.cache
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.AssemblyInfoInputs.cache
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.AssemblyInfo.cs
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.csproj.CoreCompileInputs.cache
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\refint\BMWIgnition_API.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.pdb
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\appsettings.json
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\BMWIgnition_API.exe
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\BMWIgnition_API.deps.json
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\BMWIgnition_API.runtimeconfig.json
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\BMWIgnition_API.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\BMWIgnition_API.pdb
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Humanizer.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\MailKit.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\MimeKit.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\staticwebassets\msbuild.BMWIgnition_API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\staticwebassets\msbuild.build.BMWIgnition_API.props
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BMWIgnition_API.props
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BMWIgnition_API.props
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\scopedcss\bundle\BMWIgnition_API.styles.css
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.csproj.CopyComplete
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.genruntimeconfig.cache
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\obj\Debug\net6.0\ref\BMWIgnition_API.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\appsettings.json
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\BMWIgnition_API.exe
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\BMWIgnition_API.deps.json
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\BMWIgnition_API.runtimeconfig.json
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\BMWIgnition_API.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\BMWIgnition_API.pdb
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Humanizer.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\MailKit.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\MimeKit.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.csproj.AssemblyReference.cache
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.AssemblyInfoInputs.cache
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.AssemblyInfo.cs
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.csproj.CoreCompileInputs.cache
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\scopedcss\bundle\BMWIgnition_API.styles.css
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.csproj.CopyComplete
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\refint\BMWIgnition_API.dll
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.pdb
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\BMWIgnition_API.genruntimeconfig.cache
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\obj\Debug\net6.0\ref\BMWIgnition_API.dll
+C:\Users\QXZ3N4O\Desktop\University Of Pretoria\Semester 1\INF370\Code\BackEnd with MailService\obj\Debug\net6.0\BMWIgnition_API.csproj.AssemblyReference.cache
+C:\Users\QXZ3N4O\Desktop\University Of Pretoria\Semester 1\INF370\Code\BackEnd with MailService\obj\Debug\net6.0\BMWIgnition_API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\QXZ3N4O\Desktop\University Of Pretoria\Semester 1\INF370\Code\BackEnd with MailService\obj\Debug\net6.0\BMWIgnition_API.AssemblyInfoInputs.cache
+C:\Users\QXZ3N4O\Desktop\University Of Pretoria\Semester 1\INF370\Code\BackEnd with MailService\obj\Debug\net6.0\BMWIgnition_API.AssemblyInfo.cs
+C:\Users\QXZ3N4O\Desktop\University Of Pretoria\Semester 1\INF370\Code\BackEnd with MailService\obj\Debug\net6.0\BMWIgnition_API.csproj.CoreCompileInputs.cache
+C:\Users\QXZ3N4O\Desktop\University Of Pretoria\Semester 1\INF370\Code\BackEnd with MailService\obj\Debug\net6.0\BMWIgnition_API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\QXZ3N4O\Desktop\University Of Pretoria\Semester 1\INF370\Code\BackEnd with MailService\obj\Debug\net6.0\BMWIgnition_API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\QXZ3N4O\Desktop\University Of Pretoria\Semester 1\INF370\Code\BackEnd with MailService\obj\Debug\net6.0\BMWIgnition_API.dll
+C:\Users\QXZ3N4O\Desktop\University Of Pretoria\Semester 1\INF370\Code\BackEnd with MailService\obj\Debug\net6.0\refint\BMWIgnition_API.dll
+C:\Users\QXZ3N4O\Desktop\University Of Pretoria\Semester 1\INF370\Code\BackEnd with MailService\obj\Debug\net6.0\BMWIgnition_API.pdb
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\appsettings.json
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\BMWIgnition_API.exe
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\BMWIgnition_API.deps.json
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\BMWIgnition_API.runtimeconfig.json
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\BMWIgnition_API.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\BMWIgnition_API.pdb
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Humanizer.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\MailKit.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\MimeKit.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\BMWIgnition_API.csproj.AssemblyReference.cache
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\BMWIgnition_API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\BMWIgnition_API.AssemblyInfoInputs.cache
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\BMWIgnition_API.AssemblyInfo.cs
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\BMWIgnition_API.csproj.CoreCompileInputs.cache
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\BMWIgnition_API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\BMWIgnition_API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\staticwebassets\msbuild.BMWIgnition_API.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\staticwebassets\msbuild.build.BMWIgnition_API.props
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BMWIgnition_API.props
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BMWIgnition_API.props
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\scopedcss\bundle\BMWIgnition_API.styles.css
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\BMWIgnition_API.csproj.CopyComplete
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\BMWIgnition_API.dll
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\refint\BMWIgnition_API.dll
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\BMWIgnition_API.pdb
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\BMWIgnition_API.genruntimeconfig.cache
+C:\Users\QXZ3N4O\Desktop\Backend\obj\Debug\net6.0\ref\BMWIgnition_API.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\NETCore.MailKit.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\IgnitionEmailService.dll
+C:\Users\QXZ3N4O\Desktop\Backend\bin\Debug\net6.0\IgnitionEmailService.pdb
+C:\Users\El Chopperico\Source\Repos\370-team-12-API\bin\Debug\net6.0\NETCore.MailKit.dll
+C:\Users\QXZ3N4K\Source\Repos\370-team-12-API\bin\Debug\net6.0\NETCore.MailKit.dll
