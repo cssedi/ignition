@@ -206,40 +206,32 @@ export class UserChallengesComponent implements OnInit, AfterViewInit {
         var data: any[] = response;
         console.log('depart challenges', data);
         data.forEach((element) => {
-          console.log(element.challenge);
-          element.challenge.startDate = new Date(element.challenge.startDate).toString();
-          element.challenge.endDate = new Date(element.challenge.endDate).toString();
-          element.challenge.startDate = element.challenge.startDate.replace(/ GMT\+\d{4} \(.*\)$/, "");
-          element.challenge.endDate = new Date(element.challenge.endDate);
-
-          this.challenges.push(element.challenge);
-          console.log(this.challenges);
+          const challenge: Challenge = element.challenge;
+          challenge.endDate = new Date(element.challenge.endDate);
+          
+          // Calculate and update the countdown for this challenge
+          this.updateCountdown(challenge);
+          
+          this.challenges.push(challenge);
         });
+  
+        // Periodically update the countdown for each challenge
+        setInterval(() => {
+          this.challenges.forEach((challenge) => {
+            this.updateCountdown(challenge);
+          });
+        }, 1000);
       },
       error(err) {
         console.log(err.error);
       },
     });
   }
+  
 
-  startCountdown(targetDate: Date): any {
-    return setInterval(() => {
-      const now = new Date().getTime();
-      const timeDifference = targetDate.getTime() - now;
-      if (timeDifference >= 0) {
-        // Return the formatted countdown string
-        this.countdown = this.formatTimeDifference(timeDifference)
-        console.log(this.countdown)
-        return this.countdown;
-      } else {
-        // Return "Countdown Expired" string
-        clearInterval(this.countdownInterval);
-        return "Countdown Expired!";
-      }
-    }, 1000);
-  }
 
-  enroll(challengeId: number) {
+  enroll(challengeId: number) 
+  {
     console.log(challengeId)
     this.departChalService.enroll(challengeId).subscribe({
       next: (response) => {
@@ -255,16 +247,20 @@ export class UserChallengesComponent implements OnInit, AfterViewInit {
     })
   }
 
-  formatTimeDifference(timeDifference: number): string {
-    const seconds = Math.floor((timeDifference / 1000) % 60).toString().padStart(2, '0');
-    const minutes = Math.floor((timeDifference / (1000 * 60)) % 60).toString().padStart(2, '0');
-    const hours = Math.floor((timeDifference / (1000 * 60 * 60)) % 24).toString().padStart(2, '0');
-    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-    return `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+  updateCountdown(challenge: Challenge) {
+    const currentDate = new Date();
+    const timeDifference = challenge.endDate.getTime() - currentDate.getTime();
+  
+    if (timeDifference <= 0) {
+      challenge.countdown = 'Countdown expired';
+    } else {
+      const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+  
+      challenge.countdown = `${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+    }
   }
-
-
-  clearCountdown() {
-    clearInterval(this.countdownInterval);
-  }
+  
 }
