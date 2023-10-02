@@ -1,0 +1,40 @@
+.help-popup {
+    width: 300px;
+    height: 200px;
+    border: 1px solid #ccc;
+    overflow-y: auto;
+}
+
+.help-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.help-table th {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 2px solid black;
+}
+
+.help-table .close {
+    text-align: right;
+}
+
+.help-table td {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.help-table .help-name {
+    font-weight: bold;
+}
+
+.help-table .help-description {
+    display: none;
+    padding-top: 10px;
+    background-color: #f9f9f9;
+}
+
+.help-table .help-description.show {
+    display: table-cell;
+}

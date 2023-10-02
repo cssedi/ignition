@@ -1,0 +1,554 @@
+<header>
+  <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+      <a href="https://flowbite.com" class="flex items-center">
+        <a href="#"><img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/BMW_logo_%28gray%29.svg/2048px-BMW_logo_%28gray%29.svg.png"
+            width="45px" height="45px" style="margin-left: 20px;"></a>
+        <a href="#"><img
+            src="https://www.bmwgroup.com/content/dam/grpw/websites/bmwgroup_com/logo/svg/Logo_MINI.svg"></a>
+      </a>
+
+      <!-- Bell and pfp buttons-->
+      <div class="flex items-center lg:order-2">
+        <!-- Icon button -->
+        <button type="button" data-dropdown-toggle="notification-dropdown"
+          class="p-2 mr-1 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
+          <span class="sr-only">View notifications</span>
+          <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z">
+            </path>
+          </svg>
+        </button>
+        <!-- Dropdown menu -->
+        <div
+          class="hidden overflow-hidden z-50 my-4 max-w-sm text-base list-none bg-white rounded divide-y divide-gray-100 shadow-lg dark:divide-gray-600 dark:bg-gray-700"
+          id="notification-dropdown">
+          <div
+            class="block py-2 px-4 text-base font-medium text-center text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            Notifications
+          </div>
+          <div>
+            <a href="#" class="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
+              <div class="flex-shrink-0">
+                <img class="w-11 h-11 rounded-full"
+                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
+                  alt="Bonnie Green avatar">
+                <div
+                  class="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 rounded-full border border-white bg-primary-700 dark:border-gray-700">
+                  <svg aria-hidden="true" class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z">
+                    </path>
+                    <path
+                      d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+              <div class="pl-3 w-full">
+                <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400">New message from <span
+                    class="font-semibold text-gray-900 dark:text-white">Bonnie Green</span>: "Hey, what's up? All set
+                  for the presentation?"</div>
+                <div class="text-xs font-medium text-primary-700 dark:text-primary-400">a few moments ago</div>
+              </div>
+            </a>
+            <a href="#" class="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
+              <div class="flex-shrink-0">
+                <img class="w-11 h-11 rounded-full"
+                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
+                  alt="Jese Leos avatar">
+                <div
+                  class="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-gray-900 rounded-full border border-white dark:border-gray-700">
+                  <svg aria-hidden="true" class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+              <div class="pl-3 w-full">
+                <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400"><span
+                    class="font-semibold text-gray-900 dark:text-white">Jese leos</span> and <span
+                    class="font-medium text-gray-900 dark:text-white">5 others</span> started following you.</div>
+                <div class="text-xs font-medium text-primary-700 dark:text-primary-400">10 minutes ago</div>
+              </div>
+            </a>
+            <a href="#" class="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
+              <div class="flex-shrink-0">
+                <img class="w-11 h-11 rounded-full"
+                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
+                  alt="Joseph McFall avatar">
+                <div
+                  class="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-red-600 rounded-full border border-white dark:border-gray-700">
+                  <svg aria-hidden="true" class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="pl-3 w-full">
+                <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400"><span
+                    class="font-semibold text-gray-900 dark:text-white">Joseph Mcfall</span> and <span
+                    class="font-medium text-gray-900 dark:text-white">141 others</span> love your story. See it and view
+                  more stories.</div>
+                <div class="text-xs font-medium text-primary-700 dark:text-primary-400">44 minutes ago</div>
+              </div>
+            </a>
+            <a href="#" class="flex py-3 px-4 border-b hover:bg-gray-100 dark:hover:bg-gray-600 dark:border-gray-600">
+              <div class="flex-shrink-0">
+                <img class="w-11 h-11 rounded-full"
+                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/roberta-casas.png"
+                  alt="Roberta Casas image">
+                <div
+                  class="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-green-400 rounded-full border border-white dark:border-gray-700">
+                  <svg aria-hidden="true" class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="pl-3 w-full">
+                <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400"><span
+                    class="font-semibold text-gray-900 dark:text-white">Leslie Livingston</span> mentioned you in a
+                  comment: <span class="font-medium text-primary-700 dark:text-primary-500">@bonnie.green</span> what do
+                  you say?</div>
+                <div class="text-xs font-medium text-primary-700 dark:text-primary-400">1 hour ago</div>
+              </div>
+            </a>
+            <a href="#" class="flex py-3 px-4 hover:bg-gray-100 dark:hover:bg-gray-600">
+              <div class="flex-shrink-0">
+                <img class="w-11 h-11 rounded-full"
+                  src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/robert-brown.png"
+                  alt="Robert image">
+                <div
+                  class="flex absolute justify-center items-center ml-6 -mt-5 w-5 h-5 bg-purple-500 rounded-full border border-white dark:border-gray-700">
+                  <svg aria-hidden="true" class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z">
+                    </path>
+                  </svg>
+                </div>
+              </div>
+              <div class="pl-3 w-full">
+                <div class="text-gray-500 font-normal text-sm mb-1.5 dark:text-gray-400"><span
+                    class="font-semibold text-gray-900 dark:text-white">Robert Brown</span> posted a new video:
+                  Glassmorphism - learn how to implement the new design trend.</div>
+                <div class="text-xs font-medium text-primary-700 dark:text-primary-400">3 hours ago</div>
+              </div>
+            </a>
+          </div>
+          <a href="#"
+            class="block py-2 text-base font-normal text-center text-gray-900 bg-gray-50 hover:bg-gray-100 dark:bg-gray-700 dark:text-white dark:hover:underline">
+            <div class="inline-flex items-center ">
+              <svg aria-hidden="true" class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                <path fill-rule="evenodd"
+                  d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              View all
+            </div>
+          </a>
+        </div>
+
+        <!-- User profile -->
+        <div class="flex items-center md:order-2">
+          <!-- Profile pic button -->
+          <button type="button"
+            class="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+            id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
+            data-dropdown-placement="bottom" (click)="userPfpButton()">
+            <span class="sr-only">Open user menu</span>
+            <!-- placeholder profile picture if no profile picture -->
+            <img *ngIf="user.profilePicture == null" class="w-8 h-8 rounded-full"
+              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+              alt="user photo">
+            <img *ngIf="user.profilePicture != null" class="w-8 h-8 rounded-full" src="{{user.profilePicture}}"
+              alt="user photo">
+          </button>
+
+          <!-- Dropdown menu -->
+          <div
+            class="z-50 hidden my-4 text-base  bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+            id="user-dropdown">
+            <div class="px-4 py-3">
+              <span class="block text-sm text-gray-900 dark:text-white">{{user.name}} {{user.surname}}</span>
+              <span class="block text-sm  text-gray-500 truncate dark:text-gray-400">@{{user.userName}}</span>
+            </div>
+            <ul class="py-2" aria-labelledby="user-menu-button">
+              <li>
+                <a (click)="signOut()"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign
+                  out</a>
+              </li>
+            </ul>
+          </div>
+
+          <button type="button" class="p-2 mr-1 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" (click)="signOut()">
+          <span class="sr-only">View notifications</span>
+          <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 15">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 7.5h11m0 0L8 3.786M12 7.5l-4 3.714M12 1h3c.53 0 1.04.196 1.414.544.375.348.586.82.586 1.313v9.286c0 .492-.21.965-.586 1.313A2.081 2.081 0 0 1 15 14h-3"/>
+          </svg>
+          </button>
+
+          <!-- I think this is hamburger when screen small -->
+          <button data-collapse-toggle="navbar-user" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-user" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- <button data-collapse-toggle="mobile-menu-2" type="button"
+          class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="mobile-menu-2" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button> -->
+      </div>
+
+      <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
+        <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+          <li>
+            <a href="#"
+              class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+              aria-current="page">Home</a>
+          </li>
+          <li>
+            <a routerLink="/user-challenges"
+              class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Challenges</a>
+          </li>
+          <li>
+            <a routerLink="/reward-shop"
+              class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Reward
+              Shop</a>
+          </li>
+          <li>
+            <a routerLink="/social-feed"
+              class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Social
+              Feed</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<hr>
+<header><div class="mr-150">
+
+  <h1 class="mb-9 mt-9 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white text-center">Challenges</h1>
+</div>
+  
+</header>
+
+
+<!-- Tabs -->
+
+<div class="mb-4 mt-4">
+  <ul class="flex justify-center border-b border-gray-200 dark:border-gray-700 rounded-lg items-center text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+    <li (click)="viewChallenges()" class="mr-2" role="presentation">
+      <button class="inline-block p-4 border-b-2 rounded-t-lg" id="challenges-tab" data-tabs-target="#challenges" type="button" role="tab" aria-controls="challenges" aria-selected="false">Challenges</button>
+    </li>
+    <li (click)="viewEnrolledChallenges()" class="mr-2" role="presentation">
+      <button class="inline-block p-4 border-b-2 rounded-t-lg" id="enrolled-tab" data-tabs-target="#enrolled" type="button" role="tab" aria-controls="enrolled" aria-selected="false">Enrolled</button>
+    </li>
+    <li class="mr-2" role="presentation">
+      <button class="inline-block p-4 border-b-2 rounded-t-lg" id="submited-tab" data-tabs-target="#submited" type="button" role="tab" aria-controls="submited" aria-selected="false">Submitted</button>
+    </li>
+    <!-- <li role="presentation">
+      <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="reviewed-tab" data-tabs-target="#reviewed" type="button" role="tab" aria-controls="reviewed" aria-selected="false">Reviewed</button>
+    </li> -->
+  </ul>
+</div>
+
+
+<!-- Tabs View  -->
+<div id="myTabContent">
+  <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="challenges" role="tabpanel"
+    aria-labelledby="challenges-tab">
+    <!-- Challenges to enroll for -->
+    <section
+      class="text-gray-600 body-font  animate-fade-left animate-once animate-ease-in-out bg-center bg-[url('/assets/images/st.jpg')] bg-cover bg-blend-multiply">
+      <div class="container px-5 py-4 mx-auto">
+        <div class="flex flex-wrap w-full mb-4 border-b">
+          <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Available Challenges</h1>
+            <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+            <p class="leading-relaxed text-gray-700 text-md">Welcome to your Challenges page! Participate in various
+              exciting
+              challenges, from problem-solving tasks to teamwork activities, and showcase your skills. Unlock a world of
+              possibilities and celebrate success in our engaging challenges! </p>
+
+          </div>
+          <div class="lg:w-1/2 w-full  flex justify-center ">
+            <img class="h-40 " src="assets/images/avaliable-challenges-vr.png" alt="">
+          </div>
+        </div>
+        <div class="flex flex-wrap -m-4 bg-slate-50 bg-transparent bg-opacity-60">
+
+
+          <div class="xl:w-1/4 md:w-1/2 p-4 bg-white " *ngFor="let challenge of challenges;">
+            <div class="bg-white p-3 rounded-lg  border-2 shadow transition duration-300 ease-in-out hover:scale-110">
+              <div class="relative  flex items-center gap-x-4 ">
+                <!-- placeholder profile picture if profile picture not given -->
+                <img *ngIf="challenge.user.profilePicture == null" class="w-8 h-8 rounded-full"
+                  src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                  alt="user photo">
+                <img *ngIf="challenge.user.profilePicture != null" class="w-8 h-8 rounded-full"
+                  src="{{challenge.user.profilePicture}}" alt="user photo">
+                <div class="text-sm leading-6">
+                  <p class="font-semibold text-gray-900">
+                    <a href="#">
+                      <span class="absolute inset-0"></span>
+                      {{challenge.user.name}}
+                      {{challenge.user.surname}}
+                    </a>
+                  </p>
+                  <p class="text-gray-600">Architect/Manager</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-x-4 text-xs">
+              </div>
+              <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{challenge.image}}" alt="content">
+              <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">
+                {{challenge.challengeType}}</h3>
+              <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{challenge.name}}</h2>
+              <p class="leading-relaxed text-base">{{ challenge.description}}</p>
+
+              <!-- List -->
+              <div class="border-t-2">
+                <ul role="list" class="space-y-4 my-7">
+                  <!-- Date -->
+                  <li class="flex space-x-1 items-center">
+                    <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                      <path stroke="currentColor" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6v4l3.276 3.276M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    <span
+                      class="text-base font-bold leading-tight text-gray-600 dark:text-gray-400">{{challenge.countdown}}</span>
+
+                  </li>
+                  <li class="flex space-x-1 items-center">
+                    <img class="flex-shrink-0 w-6 h-6 text-grey-600 dark:text-grey-500"
+                      src="https://img.freepik.com/premium-vector/gold-coin_92172-91.jpg?w=2000" alt="">
+                    <span class="text-base font-normal leading-tight text-gray-600 dark:text-gray-400">
+                      {{challenge.tokens}}
+                    </span>
+                  </li>
+                  <!-- Prize -->
+                  <li class="flex space-x-1 items-center">
+                    <img class="flex-shrink-0 w-6 h-6 text-grey-600 dark:text-grey-500"
+                      src="{{challenge.prize.frontImgURL}}" alt="">
+                    <span class="text-base font-normal leading-tight text-gray-600 dark:text-gray-400">
+                      {{challenge.prize.name}}
+                    </span>
+                  </li>
+
+                  <!-- Medal -->
+                  <li class="flex space-x-1 items-center">
+                    <img class="flex-shrink-0 w-6 h-6 text-grey-600 dark:text-grey-500"
+                      src="{{challenge.medal.imageString}}" alt="">
+                    <span class="text-base font-normal leading-tight text-gray-600 dark:text-gray-400">
+                      {{challenge.medal.medalName}}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <!-- Footer -->
+              <div class="flex items-center">
+                <div>
+                  <button (click)="enroll(challenge.challengeID)"
+                    class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="w-5 h-5">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+
+                    <span>Join Challenge </span>
+                  </button>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="hidden p-4 rounded-lg bg-white dark:bg-gray-800" id="enrolled" role="tabpanel"
+    aria-labelledby="enrolled-tab">
+
+    <!-- Enrolled Challenges -->
+    <section
+      class="text-gray-600 body-font animate-fade-left animate-once animate-ease-in-out bg-center bg-[url('/assets/images/enrolled-challenges.jpg')] bg-cover bg-blend-multiply ">
+      <div class="container px-5 py-4 mx-auto   border-b  bg-slate-50/5 bg-blend-multiply bg-cover">
+        <div class="flex flex-wrap w-full mb-20">
+          <div class="lg:w-1/2 w-full mb-2 lg:mb-0">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Enrolled Challenges</h1>
+            <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+            <p leading-relaxed text-gray-500> Here you will find your enrolled challenges. Get ready to grow,
+              collaborate, and shine. Your dedication and enthusiasm will make a difference. Let the games begin! </p>
+          </div>
+          <div class="lg:w-1/2 w-full  flex justify-center ">
+            <img class="h-80 "
+              src="https://img.freepik.com/free-vector/task-management-abstract-concept-illustration_335657-2127.jpg?w=740&t=st=1690526583~exp=1690527183~hmac=fb308a3b46daf2d5e7e83c2f57e56eb5fff7b0d50d9eb5fb24a7f32de9ccb96f"
+              alt="">
+          </div>
+        </div>
+
+      </div>
+      <div class="flex flex-wrap  bg-slate-50 bg-transparent bg-opacity-60">
+        <div class="xl:w-1/4 md:w-1/2 p-4" *ngFor="let instance of challengeInstances">
+
+          <div
+            class="flex bg-white shadow-lg rounded-lg max-w-md md:max-w-25  transition duration-300 ease-in-out hover:scale-110 ">
+            <!--horizantil margin is just for display-->
+            <div class="flex items-start px-4 py-6">
+              <div class="">
+                <div class="flex items-center justify-between">
+                  <h2 class="text-lg font-semibold text-gray-900 -mt-1">{{instance.challenge.name}}</h2>
+
+                  <small class="text-sm text-gray-700"></small>
+                </div>
+                <p class="text-gray-700">Ends on <span class="text-gray-900">{{instance.challenge.endDate}}</span> </p>
+                <p class="mt-3 text-gray-700 text-md pb-2">
+                  {{instance.challenge.description}}
+                </p>
+                <ul role="list" class="space-y-5 my-7">
+                  <li class="flex space-x-3  decoration-gray-600">
+                    <!-- Prize -->
+                    <img src="{{instance.challenge.prize.imageString}}"
+                      class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-600" alt="">
+                    <span
+                      class="text-base font-normal leading-tight text-gray-700">{{instance.challenge.prize.name}}</span>
+                  </li>
+
+                  <li class="flex space-x-3">
+                    <img class="flex-shrink-0 w-6 h-6 text-grey-600 dark:text-grey-500"
+                      src="{{instance.challenge.medal.imageString}}" alt="">
+                    <span class="text-base font-normal leading-tight text-gray-700 dark:text-gray-400">
+                      {{instance.challenge.medal.medalName}}
+                    </span>
+                  </li>
+                  <li class="flex space-x-3">
+                    <!-- token -->
+                    <img class="flex-shrink-0 w-6 h-6 text-grey-600 dark:text-grey-500"
+                      src="https://img.freepik.com/premium-vector/gold-coin_92172-91.jpg?w=2000" alt="">
+                    <span class="text-base font-normal leading-tight text-gray-700 dark:text-gray-400">
+                      {{instance.challenge.tokens}} Hubcoins
+                    </span>
+                  </li>
+
+                </ul>
+                <div class="mt-4 flex items-center">
+                  <div>
+                    <div class="flex mt-4 space-x-3 md:mt-6">
+                      <a (click)="completeChallenge(instance.challengeID)"
+                        class="inline-flex w-1/2 items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Complete</a>
+                      <a (click)="cancelChallengeInstance(instance.challengeId)"
+                        class="inline-flex  w-1/2 items-center  px-4 py-2 text-sm font-medium text-center text-gray-600 b border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">Cancel</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="submited" role="tabpanel"
+    aria-labelledby="submited-tab">
+
+    <!-- Submited Challenges -->
+    <section class="text-gray-600 body-font animate-fade-left animate-once animate-ease-in-out">
+      <div class="container px-5 py-4 mx-auto">
+        <div class="flex flex-wrap w-full mb-4 border-b">
+          <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Submitted Challenges</h1>
+            <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+            <p class="leading-relaxed text-gray-700 text-md">Welcome to the Challenge Submission Center! This is your platform to showcase your skills and creativity. Here, you can submit your solutions to a variety of challenges you have enrolled in,  created by the awards architects.  </p>
+
+          </div>
+          <div class="lg:w-1/2 w-full  flex justify-center ">
+            <img class="h-40 "
+              src="assets/images/avaliable-challenges-vr.png"
+              alt="">
+          </div>
+        </div>
+        <div class="flex flex-wrap -m-4 bg-slate-50 bg-transparent bg-opacity-60">
+
+          <div class="xl:w-1/4 md:w-1/2 p-4" *ngFor="let instance of completedChallenges">
+
+            <div class="flex bg-white shadow-lg rounded-lg max-w-md md:max-w-25 ">
+              <!--horizantil margin is just for display-->
+              <div class="flex items-start px-4 py-6">
+                <div class="">
+                  <div class="flex items-center justify-between">
+                    <h2 class="text-lg font-semibold text-gray-900 -mt-1">{{instance.challenge.name}}</h2>
+
+                    <small class="text-sm text-gray-700"></small>
+                  </div>
+                  <p class="text-gray-700">Submitted! </p>
+                  <div class="mt-3 text-gray-700 text-sm pb-2">
+                    <img src="{{instance.submition}}" alt="">
+                  </div>
+
+                  <div class="mt-4 flex items-center">
+                    <div>
+                      <div class="flex mt-4 space-x-3 md:mt-6">
+                        <a (click)="cancelChallengeInstance(instance.challenge.challengeID)"
+                          class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-red-500 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700">Cancel</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </section>
+  </div>
+<!-- 
+  <div class="hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="reviewed" role="tabpanel"
+    aria-labelledby="reviewed-tab">
+    <p class="text-sm text-gray-500 dark:text-gray-400">Find here the challenges that you've submitted, and have been approved.</p>
+  </div> -->
+  <!-- Challenges to enroll for -->

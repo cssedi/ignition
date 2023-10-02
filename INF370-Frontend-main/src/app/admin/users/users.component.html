@@ -1,0 +1,411 @@
+
+
+
+
+<div class="sm:flex sm:items-center sm:justify-between">
+    <div>
+        <div class="flex items-center gap-x-3">
+            <h2 class="text-lg font-medium text-gray-800 dark:text-white">Users</h2>
+
+            <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400">
+                {{users.length}} Users</span>
+        </div>
+
+        <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">These are all the function that are the BMW ZA hub</p>
+    </div>
+
+    <div class="flex items-center mt-4 gap-x-3">
+
+
+    </div>
+</div>
+
+<div class="mt-6 mb-4 md:flex md:items-center md:justify-between">
+    <!-- Search bar -->
+    <div class="relative flex items-center mt-4 md:mt-0">
+        <span class="absolute">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-5 h-5 mx-3 text-gray-400 dark:text-gray-600">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+        </span>
+
+        <input (input)="searchUser()" name="search" [(ngModel)]="searchTerm" type="text" placeholder="Search User"
+            class="block w-full py-1.5 pr-10 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40">
+
+        <span class="absolute right-4 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                class="w-4 h-4 text-red-400 dark:text-gray-600">
+                <path fill-rule="evenodd"
+                    d="M5.293 4.293a1 1 0 011.414 0L10 8.586l3.293-3.293a1 1 0 111.414 1.414L11.414 10l3.293 3.293a1 1 0 01-1.414 1.414L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 10 5.293 6.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd" />
+            </svg>
+        </span>
+    </div>
+
+
+    <div
+        class="inline-flex overflow-hidden bg-white border divide-x rounded-lg dark:bg-gray-900 rtl:flex-row-reverse dark:border-gray-700 dark:divide-gray-700">
+        <button (click)="toggleAddModal()"
+            class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <!--  -->
+            <span>Add User</span>
+
+        </button>
+    </div>
+
+
+</div>
+<div class="flex flex-col mx-4 ">
+    <div class="overflow-x-auto">
+        <div class="align-middle inline-block min-w-full">
+            <div class="shadow overflow-hidden">
+                <table class="table-fixed min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-100">
+                        <tr>
+
+                            <th scope="col" class="p-4 text-left text-xs font-medium text-gray-500 uppercase">
+                                Name
+                            </th>
+                            <th scope="col" class="p-4 text-left text-xs font-medium text-gray-500 uppercase">
+                                Departement
+                            </th>
+                            <th scope="col" class="p-4 text-left text-xs font-medium text-gray-500 uppercase">
+                                Role
+                            </th>
+                            <th scope="col" class="p-4 text-left text-xs font-medium text-gray-500 uppercase">
+                                Status
+                            </th>
+                            <th scope="col" class="p-4">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" *ngFor="let user of users">
+                        <tr>
+
+                            <td class="p-4 flex items-center whitespace-nowrap space-x-6 mr-12 lg:mr-0">
+                                <!-- placeholder profile picture if profile picture not given -->
+                                <img *ngIf="user.profilePicture == null" class="w-8 h-8 rounded-full" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="user photo">
+                                <img *ngIf="user.profilePicture != null" class="w-8 h-8 rounded-full" src="{{user.profilePicture}}" alt="user photo">
+                                <div class="text-sm font-normal text-gray-500">
+                                    <div class="text-base font-semibold text-gray-900">{{user.name }} {{ user.surname}}
+                                    </div>
+                                    <div class="text-sm font-normal text-gray-500"> @{{user.userName }} </div>
+                                </div>
+                            </td>
+                            <td class="p-4 whitespace-nowrap text-base font-medium text-gray-900">{{user.department }}
+                            </td>
+                            <td class="p-4 whitespace-nowrap text-base font-medium text-gray-900">
+                                <div class="flex items-center" *ngFor="let role of user.roles">
+
+                                    <span
+                                        class="inline-flex items-center bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                                        {{role}}
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="p-4 whitespace-nowrap text-base font-normal text-gray-900">
+                                <div class="flex items-center">
+                                    <span
+                                        class="inline-flex items-center bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                                        <span class="w-2 h-2 mr-1 bg-green-500 rounded-full"></span>
+                                        Active
+                                    </span>
+                                </div>
+                            </td>
+                            <td class="p-4 whitespace-nowrap space-x-2">
+                                <!-- Delete button-->
+                                <button (click)="viewUser(user.id)"
+                                    class="flex items-center space-x-2 text-gray-500 transition-colors duration-200 dark:hover:text-yellow-500 dark:text-gray-300 hover:text-yellow-500 focus:outline-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                                    </svg>
+                                    Update user role
+                                </button>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="container px-1 mx-auto  animate-jump-in animate-once animate-duration-1000 animate-ease-out" *ngIf="users.length == 0" >
+
+    <div class="flex  bg-red-50 items-center m text-center border rounded-lg h-96 dark:border--700">
+        <div class="flex flex-col w-full max-w-sm px-4 mx-auto">
+            <div class="p-3 mx-auto text-blue-500 bg-blue-100 rounded-full dark:bg-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>
+            </div>
+            <h1 class="mt-3 text-lg text-gray-800 dark:text-white">No fuctions found</h1>
+            <!-- <p class="mt-2 text-gray-500 dark:text-gray-400">
+                Click the "Add function" button to create a function
+            </p> -->
+            <!-- If the search term is not found -->
+            <div>
+                <p class="mt-2 text-gray-500 dark:text-gray-400" *ngIf="users.length == 0 && searchTerm != ''  ">
+                    Your search "{{searchTerm}}" did not match any function. Please try again or Click the "Add
+                    function" button to create a function.
+                    <!-- <div class="flex items-center mt-4 sm:mx-auto gap-x-3">
+                    <button class="w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
+                        Clear Search
+                    </button>
+    
+                    <button class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+    
+                        <span>Add Function</span>
+                    </button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+<!-- Add User -->
+<div class="absolute top-0 left-0 right-0 z-30  inset-0 flex items-center justify-center  w-full h-modal md:h-full"
+    *ngIf="showAddModal">
+    <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+        <div class="fixed inset-0 bg-gray-900 opacity-75 transition-opacity"
+            [ngClass]="{ 'opacity-100': showAddModal, 'opacity-0': !showAddModal }">
+        </div>
+        <div class="bg-white rounded-lg p-3 transform transition-transform duration-300 ease-in-out"
+            [ngClass]="{ 'scale-100': showAddModal, 'scale-95': !showAddModal }">
+            <div class="relative bg-white rounded-lg ">
+                <!-- Modal header -->
+                <div
+                    class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+                        Add User
+                    </h3>
+                    <button (click)="toggleAddModal()" type="button" data-modal-target="updateFunctionModal"
+                        data-modal-hide="updateFunctionModal"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+
+                <!-- Modal body -->
+                <form [formGroup]="userForm" (submit)="createUser()" >
+                    <div class="flex flex-col">
+
+                        <div class="flex flex-row w-full space-x-3 mb-5">
+                            <div class="flex flex-col w-1/2">
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                                <input type="text" formControlName="name" id="name" formControlName="name"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="e.g Mike"
+                                [ngClass]="{'border-red-500': userForm.get('name')?.invalid && formSubmitted, 'border-gray-400': !userForm.get('name')?.invalid || !formSubmitted }" class="block w-full py-3 text-gray-700 bg-white borde border-gray-400 rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" id="brand" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <p *ngIf="userForm.controls['name'].invalid && (formSubmitted || userForm.controls['name'].touched)" class="bottom-0 text-xs text-red-600 dark:text-red-400" >This field is required!</p>
+                            </div>
+
+                            <div class="flex flex-col w-1/2">
+                                
+                                <label for="surname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Surname</label>
+                                    <input type="text" id="name" formControlName="surname"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="e.g Mike"
+                                    [ngClass]="{'border-red-500': userForm.get('surname')?.invalid && formSubmitted, 'border-gray-400': !userForm.get('surname')?.invalid || !formSubmitted }" class="block w-full py-3 text-gray-700 bg-white borde border-gray-400 rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" id="brand" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <p *ngIf="userForm.controls['surname'].invalid && (formSubmitted || userForm.controls['surname'].touched)" class="bottom-0 text-xs text-red-600 dark:text-red-400" >This field is required!</p>
+                            </div>
+                        </div>
+
+                        
+                        <div class="flex flex-row w-full space-x-3 mb-5">
+                            <div class="flex flex-col w-1/2">
+                                
+                                <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Name  </label>
+                                <input type="text" value="399" name="price" id="price" formControlName="userName"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="e.g elchoperico"
+                                    [ngClass]="{'border-red-500': userForm.get('userName')?.invalid && formSubmitted, 'border-gray-400': !userForm.get('userName')?.invalid || !formSubmitted }" class="block w-full py-3 text-gray-700 bg-white borde border-gray-400 rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" id="brand" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <p *ngIf="userForm.controls['userName'].hasError('required') && (formSubmitted || userForm.controls['userName'].touched)" class="bottom-0 text-xs text-red-600 dark:text-red-400">This field is required!</p>
+                                <p *ngIf="userForm.controls['userName'].hasError('pattern') && (formSubmitted || userForm.controls['userName'].touched)" class="bottom-0 text-xs text-red-600 dark:text-red-400">This field cannot contain special characters!</p>
+                                 
+                            </div>
+
+                            <div class="flex flex-col w-1/2">
+                                <label for="price"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
+                                </label>
+                                <input type="email" value="399" name="price" id="price" formControlName="email"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="e.g elchoperico"
+                                [ngClass]="{'border-red-500': userForm.get('email')?.invalid && formSubmitted, 'border-gray-400': !userForm.get('email')?.invalid || !formSubmitted }" class="block w-full py-3 text-gray-700 bg-white borde border-gray-400 rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" id="brand" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <p *ngIf="userForm.controls['email'].invalid && (formSubmitted || userForm.controls['email'].touched)" class="bottom-0 text-xs text-red-600 dark:text-red-400" >This field is required!</p>
+                            
+                            </div>
+                        </div>
+
+
+                        <div class="flex flex-col w-1/2 mb-5">
+                            <label for="category"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Role</label>
+                            <select id="category" formControlName="role" 
+                            [ngClass]="{'border-red-500': userForm.get('role')?.invalid && formSubmitted, 'border-gray-400': !userForm.get('role')?.invalid || !formSubmitted }" class="block w-full py-3 text-gray-700 bg-white borde border-gray-400 rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" id="brand" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                               <option value="ADMIN">ADMIN</option>
+                               <option value="REWARDARCHITECT">REWARDARCHITECT</option>
+                               <option value="SUPERARCHITECT">Super Architect</option>
+
+                            </select>
+                            <p *ngIf="userForm.controls['role'].invalid && (formSubmitted || userForm.controls['role'].touched)" class="bottom-0 text-xs text-red-600 dark:text-red-400" > Please make a selection!</p>
+
+                        </div>
+
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button type="submit"
+                            class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                            Add User
+                        </button>
+                        <button type="button"
+                            class="text-red-600 inline-flex items-center hover:text-white border border-red-600 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">
+                            <svg class="mr-1 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            Delete
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--  Update Challenge Type-->
+<div id="updateModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-start justify-between p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
+                    Update User Type 
+                </h3>
+                <button (click)="hideUpdateModal()" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-6 space-y-6" *ngIf="updateUser != null">
+                <div class=" flex items-center whitespace-nowrap space-x-6 mr-12 lg:mr-0">
+                                <!-- placeholder profile picture if profile picture not given -->
+                                <img *ngIf="updateUser.profilePicture == null" class="w-8 h-8 rounded-full" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="user photo">
+                                <img *ngIf="updateUser.profilePicture != null" class="w-8 h-8 rounded-full" src="{{updateUser.profilePicture}}" alt="user photo">
+                    <div class="text-sm font-normal text-gray-500">
+                        <div class="text-base font-semibold text-gray-900">{{updateUser.name }} {{ updateUser.surname}}
+                        </div>
+                        <div class="text-sm font-normal text-gray-500"> @{{updateUser.userName }} </div>
+                    </div>
+                </div>
+                
+                <div *ngIf="updateUser.roles.length == 1 && selectRole == ''">
+                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Role </label>
+                    <select   name="selectRole" [(ngModel)]="selectRole" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="REWARDARCHITECT">Awards Architect</option>
+                    <option value="ADMIN">Admin</option>
+                    <option value="SUPERARCHITECT">Super Architect</option>
+
+                    </select>
+                </div>
+                <div class="flex items-center space-x-4"  >
+                    
+              <table>
+                <thead>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><h3 class="text-sm  text-gray-900 dark:text-white">User asigned roles</h3> </td>
+                    </tr>
+                    <tr *ngFor="let role of updateUser.roles">
+                        <td>
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">{{role}}</p>
+                        </td>
+                        <td class="px-4 py-4 text-sm whitespace-nowrap">
+                            <div class="flex items-center gap-x-6">
+                                <button   *ngIf="role != 'CHALLENGER'" (click)="removeRole(updateUser.id,  role)" type="button" update class="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                    </svg>
+                                </button>
+
+                                
+                            </div>
+                        </td>
+                        
+                    </tr>
+                    <tr *ngIf="selectRole != ''">
+                        <td>
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">{{selectRole}}</p>
+                        </td>
+                        <td class="px-4 py-4 text-sm whitespace-nowrap">
+                            <div class="flex items-center gap-x-6">
+                                <button   *ngIf="selectRole != 'CHALLENGER'" (click)="removeRole(updateUser.id,  selectRole)" type="button" update class="text-gray-500 transition-colors duration-200 dark:hover:text-red-500 dark:text-gray-300 hover:text-red-500 focus:outline-none">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                    </svg>
+                                </button>
+
+                                
+                            </div>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+              </table>
+                  
+            </div>
+            <!-- Modal footer -->
+           
+            </div>
+            <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                <button (click)="updateUserRole()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>
+                <button  (click)="hideUpdateModal()" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div role="status"  *ngIf="ifIsLoading" class="fixed top-0 left-0 right-0 z-50  inset-0 flex items-center justify-center  w-full h-screen bg-black bg-opacity-50">
+    <svg aria-hidden="true" class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+        <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+    </svg>
+    <span class="sr-only">Loading...</span>
+</div>

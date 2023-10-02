@@ -1,0 +1,97 @@
+<section class="bg-white dark:bg-gray-900  flex  bord" >
+    <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16 border  rounded-lg shadow-lg">
+        <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Update Prize </h2>
+        <form (submit)="onSubmit()" [formGroup]="productForm" class="p-4">
+            <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+              <div class="sm:col-span-2">
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product Name</label>
+                <input type="email" formControlName="productName" placeholder="Winter Jacket"
+                  class="mt-2 block w-full placeholder-gray-400 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
+                <div *ngIf="productForm.get('productName')!.invalid && productForm.get('productName')!.touched">
+                  <small class="text-red-600">Product Name is required.</small>
+                </div>
+              </div>
+              <div class="w-full">
+                <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tokens</label>
+                <input type="number" formControlName="tokens" min="0" placeholder="10"
+                  class="mt-2 block w-full placeholder-gray-400 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" />
+                <div *ngIf="productForm.get('tokens')!.invalid && productForm.get('tokens')!.touched">
+                  <small class="text-red-600">Tokens must be a positive number.</small>
+                </div>
+              </div>
+              <div>
+                <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Reward Category</label>
+                <select formControlName="prizeType" 
+                  class="mt-2 block w-full placeholder-gray-400 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-500 focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300">
+                  
+                  <option *ngFor="let prizeType of prizeTypes" [value]="prizeType.prizeTypeID" >{{prizeType.name}}</option>
+                 
+                </select>
+                <div *ngIf="productForm.get('prizeType')!.invalid && productForm.get('prizeType')!.touched">
+                  <small class="text-red-600">Prize type is required.</small>
+                </div>
+              </div>
+              <div class="w-full">
+                <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                <textarea formControlName="description" rows="8"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Your description here"></textarea>
+                <div *ngIf="productForm.get('description')!.invalid && productForm.get('description')!.touched">
+                  <small class="text-red-600">Description is required.</small>
+                </div>
+              </div>
+              <div class="w-full">
+                <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Image</label>
+                <div class="flex items-center justify-center w-full  " >
+                    <div class="c w-full" *ngIf="base64Image">
+                        <div for="dropzone-file"
+                            class=" relative flex flex-col items-center justify-center w-full h-64 border-2 border-blue-300  rounded-lg cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                            <span class="sr-only">Notifications</span>
+                            <span (click)="clearImageUpload()" class="absolute inline-flex items-center bg-white justify-center w-6 h-6 text-xs font-bold text-white border-2 border-red-500 rounded-full -top-2 -right-2 dark:border-gray-900">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-red-400 dark:text-gray-600">
+                                <path fill-rule="evenodd" d="M5.293 4.293a1 1 0 011.414 0L10 8.586l3.293-3.293a1 1 0 111.414 1.414L11.414 10l3.293 3.293a1 1 0 01-1.414 1.414L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 10 5.293 6.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                              </svg>
+                            </span>
+                            <img style="height: 100px;" [src]="base64Image" *ngIf="base64Image" alt="Uploaded Image">
+                        </div>                   
+                    </div>
+    
+                    <!-- Upload image section -->
+                    <label for="dropzone-file" *ngIf="!base64Image" (drop)="onImageDrop($event)" (dragover)="onDragOver($event)"
+                        class="flex flex-col items-center justify-center w-full h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                            <svg aria-hidden="true" class="w-10 h-10 mb-3 text-blue-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                                </path>
+                            </svg>
+                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to
+                                    upload</span> or <span class="text-red-300">drag and drop in progress</span></p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                        </div>
+                        <input id="dropzone-file" type="file" class="hidden" (change)="handleFileInput($event)" />
+                    </label>
+                </div> 
+              </div>
+            </div>
+           
+            <div class="flex items-center  mt-5 space-x-2  rounded-b dark:border-gray-600">
+                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"> Update </button>
+                <a  routerLink="/view-rewards">
+                  <button  type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Cancel</button>
+
+                </a>
+            </div>
+       
+          </form>
+          
+    </div>
+    <div class="py-8 mx-auto max-w-2xl lg:py-16">
+        <img  class="w-full  h-full" src="https://img.freepik.com/free-vector/creating-online-platforms-isometric-concept_52683-33746.jpg?w=826&t=st=1689939459~exp=1689940059~hmac=bbba1220cbea4405d5aab119c265920915938cdaed8344c9a7e7c91cb075bdd6" alt="">
+    </div>
+</section>
+
+
+
+

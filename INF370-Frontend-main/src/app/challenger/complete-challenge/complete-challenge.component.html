@@ -1,0 +1,71 @@
+
+
+<section class="bg-white dark:bg-gray-900" *ngIf="isSubmit == false">
+    <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+        <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Complete Challenge</h2>
+        <form (ngSubmit)="createEmoji()" [formGroup]="myForm">
+            <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+               
+
+                <div class="sm:col-span-2">
+                    <div class="flex items-center justify-center w-full  " >
+                        <div class="c w-full" *ngIf="base64Image">
+                            <div for="dropzone-file"
+                                class=" relative flex flex-col items-center justify-center w-full h-64 border-2 border-blue-300  rounded-lg cursor-pointer dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                <span class="sr-only">Notifications</span>
+                                <span (click)="clearImageUpload()" class="absolute inline-flex items-center bg-white justify-center w-6 h-6 text-xs font-bold text-white border-2 border-red-500 rounded-full -top-2 -right-2 dark:border-gray-900">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-red-400 dark:text-gray-600">
+                                    <path fill-rule="evenodd" d="M5.293 4.293a1 1 0 011.414 0L10 8.586l3.293-3.293a1 1 0 111.414 1.414L11.414 10l3.293 3.293a1 1 0 01-1.414 1.414L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 10 5.293 6.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                  </svg>
+                                </span>
+                                <img style="height: 100px;" [src]="base64Image" *ngIf="base64Image" alt="Uploaded Image">
+                            </div>                   
+                        </div>
+        
+                        <!-- Upload image section -->
+                        <label for="dropzone-file" *ngIf="!base64Image" (drop)="onImageDrop($event)" (dragover)="onDragOver($event)"
+                            class="flex flex-col items-center justify-center w-full h-36 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                <svg aria-hidden="true" class="w-10 h-10 mb-3 text-blue-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                                    </path>
+                                </svg>
+                                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to
+                                        upload</span> or <span class="text-red-300">drag and drop in progress</span></p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                            </div>
+                            <input id="dropzone-file" type="file" class="hidden" (change)="handleFileInput($event)" />
+                        </label>
+                    </div> 
+                </div>
+               
+                
+            </div>
+            <button type="submit" class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+              Complete Challenge
+            </button>
+        </form>
+    </div>
+  </section>
+ 
+
+  <section class="bg-white dark:bg-gray-900" *ngIf="isSubmit">
+    <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16" [ngClass]="{'animate-fade-up animate-duration-1000 animate-delay-1000 animate-ease-linear'  : isSubmit }">
+        <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Challenge has been submited, waiting for manager to approve, we get a notification once it is apprroved</h2>
+
+        <img  class="" src="https://img.freepik.com/free-vector/3d-cartoon-style-checkmark-phone-screen-icon-success-message-notification-document-scanning-white-background-flat-vector-illustration-paperwork-agreement-concept_778687-985.jpg?w=826&t=st=1689846158~exp=1689846758~hmac=ee8c6acdb61306a9f1202a1d0ba9b96abe4b932c0171ce12e37debce9269718a">
+        <button routerLink="/user-challenges" class="flex items-center m-auto justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-purple-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-purple-600 dark:hover:bg-purple-500 dark:bg-purple-600">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+
+            <span>Complete More Challenges </span>
+        </button>
+    </div>
+  </section>
+
+  
+
+

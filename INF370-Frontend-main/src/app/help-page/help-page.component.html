@@ -1,0 +1,72 @@
+<div class="items-center w-1/2 mx-auto ">
+    <div class="flex flex-wrap mx-auto w-max items-center">
+        <img class="h-12 text-center w-auto "
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa8wwT3d7Q-UCENieoWH3frKQ8-XkQMy6r1utPjjIIoQ&s"
+            alt="">
+        <h6 class="text-4xl text-center font-semibold">Ignition Help</h6>
+    </div>
+    <p class="text-center text-md text-gray-600">This is the help page for ignition. Find answers to your questions on
+        any Ignition functionality here.</p>
+    <br>
+</div>
+
+<!-- Helps here.  -->
+<!-- Envisioning a card for each page that has helps related to it. In the cards, each help heading is listed with its relevant answer below. -->
+<section class="container mt-16 px-4 mx-auto">
+    <div class="mt-6 md:flex md:items-center">
+        <!-- Searchbar -->
+        <div class="relative flex items-center mt-4 md:mt-0">
+            <span class="absolute">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-5 h-5 mx-3 text-gray-400 dark:text-gray-600">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                </svg>
+            </span>
+    
+            <!-- Searchbar -->
+            <input type="text" (input)="searchHelps()" [(ngModel)]="searchTerm" placeholder="Search Helps"
+                class="block w-full py-1.5 pr-10 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40">
+    
+            <!-- Little 'x' to clear searchbar -->
+            <span class="absolute right-4 cursor-pointer" (click)="clearSearch()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                    class="w-4 h-4 text-red-400 dark:text-gray-600">
+                    <path fill-rule="evenodd"
+                        d="M5.293 4.293a1 1 0 011.414 0L10 8.586l3.293-3.293a1 1 0 111.414 1.414L11.414 10l3.293 3.293a1 1 0 01-1.414 1.414L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 10 5.293 6.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+        </div>
+    </div>
+
+    <div class="flex flex-col">
+        <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                <div class="overflow-hidden border  dark:border-gray-700 md:rounded-lg">
+                    <div class="flex flex-wrap -mx-4">
+
+                        <!-- Card 1 -->
+                        <div class="w-full px-4 mb-8" *ngFor="let loc of locationPairs">
+                            <div class="bg-white shadow-lg rounded-lg p-6" id='{{loc[0]}}'>
+                                <h2 class="text-xl font-bold mb-4"> {{ loc[1] }} </h2>
+                                <ul>
+                                    <!-- Dynamically populated helps -->
+                                    <li class="mb-2" *ngFor="let help of helps">
+                                        <ng-container *ngIf="help.location.locationId === loc[0]">
+                                            <h3 class="text-lg font-semibold">{{ help.name }}</h3>
+                                            <p>{{ help.description }}</p>
+                                        </ng-container>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,155 @@
+
+<div class="flex flex-col">
+    <div class="flex flex-row ">
+    <div class="">
+      <h1 class="text-3xl font-bold mb-4">
+        Database 
+      </h1>
+    
+      <div class="flex flex-row justify-between">
+
+            <!-- Search bar -->
+            <div class="relative flex items-center mt-4 md:mt-0">
+                <span class="absolute">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mx-3 text-gray-400 dark:text-gray-600">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </span>
+                
+                <input type="text"  (input)="searchDbAudits()" [(ngModel)]="searchTerm" placeholder="Search Challenge Type" class="block w-full py-1.5 pr-10 text-gray-700 bg-white border border-gray-200 rounded-lg md:w-80 placeholder-gray-400/70 pl-11 rtl:pr-11 rtl:pl-5 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40">
+                
+                <span  class="absolute right-4 cursor-pointer" (click)="clearSearch()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-red-400 dark:text-gray-600">
+                    <path fill-rule="evenodd" d="M5.293 4.293a1 1 0 011.414 0L10 8.586l3.293-3.293a1 1 0 111.414 1.414L11.414 10l3.293 3.293a1 1 0 01-1.414 1.414L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 10 5.293 6.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+            </div>
+            <div class="flex flex-row space-x-3 ">
+                <button (click)="backUpDatabase()"  class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600">
+                    <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
+                    </svg>
+                    <span>Back up database</span>
+                </button>
+                <button (click)="restoreDatabase()"  class="flex items-center justify-center w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto gap-x-2 hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600">
+                    <svg class="w-4 h-4 text-white rotate-180 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
+                    </svg>
+                    <span>Restore Database</span>
+                </button>
+            </div>
+ 
+      </div>
+    </div>
+    </div>
+
+
+      <div class="flex flex-col mt-6" >
+        <div class="mx-auto -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                <div class="overflow-hidden border border-blue-300 dark:border-gray-700 md:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                        <thead class="bg-gray-50 dark:bg-gray-800 ">
+                            <tr>
+                                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <div class="flex items-center gap-x-3">
+                                        <span class="font-medium ">User</span>
+
+                                    </div>
+                                </th>
+                                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <div class="flex items-center gap-x-3">
+                                        <span class="font-medium ">Action</span>
+
+                                    </div>
+                                </th>
+                                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <div class="flex items-center gap-x-3">
+                                        <span class="font-medium ">Date</span>
+
+                                    </div>
+                                </th>
+                                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <div class="flex items-center gap-x-3">
+                                        <span class="font-medium ">Amount</span>
+
+                                    </div>
+                                </th>
+                                <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <div class="flex items-center gap-x-3">
+                                        <span class="font-medium ">Quantity</span>
+
+                                    </div>
+                                </th>
+
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    
+                                </th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody  class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900" *ngFor="let audit of audits">
+
+                            <tr *ngIf="audits.length > 0">
+                                <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                                    <p class="text-sm font-normal text-gray-600 dark:text-gray-400">{{audit.userId}}</p>
+                                </td>
+                                <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                                    <p class="text-sm font-normal text-gray-600 dark:text-gray-400">{{audit.action}}</p>
+                                </td>
+                                <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                                    <p class="text-sm font-normal text-gray-600 dark:text-gray-400">{{audit.timestamp | date:"MMM dd, yyyy 'at' hh:mm a"}}</p>
+                                </td>
+                                <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                                    <p class="text-sm font-normal text-gray-600 dark:text-gray-400">{{audit.amount}}</p>
+                                </td>
+                                <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                                    <p class="text-sm font-normal text-gray-600 dark:text-gray-400">{{audit.quantity}}</p>
+                                </td>
+                             
+                                <!-- <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">to do </td> -->
+                               
+                                <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                    <div class="flex items-center gap-x-6">
+
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                            </tr>
+
+                         
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="container px-1 w-screen " *ngIf="audits.length == 0">
+        
+        <div class="flex  bg-red-50 items-center m text-center border rounded-lg h-96 dark:border--700">
+            <div class="flex flex-col w-full max-w-sm px-4 mx-auto">
+                <div class="p-3 mx-auto text-blue-500 bg-blue-100 rounded-full dark:bg-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </div>
+                <h1 class="mt-3 text-lg text-gray-800 dark:text-white">No Departments found</h1>
+
+                <!-- <div >
+                    <p class="mt-2 text-gray-500 dark:text-gray-400" *ngIf="audits.length == 0 && searchTerm != ''  ">
+                        Your search "{{searchTerm}}" did not match any department. Please try again or cClick the "Add department" button to create a function.
+
+                </div> -->
+            </div>
+        </div>
+    
+    </section>
+
+
+
+</div>
