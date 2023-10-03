@@ -20,9 +20,8 @@ import { SocialFeedService } from 'src/app/services/social-feed.service';
   styleUrls: ['./reports.component.scss']
 })
 
-export class ReportsComponent implements OnInit, AfterViewInit {
-  @ViewChild('pdfContent', { static: false }) pdfContent!: ElementRef;
-  //Variables
+export class ReportsComponent implements OnInit {
+  @ViewChild('chartContainer', { static: false }) chartContainer!: ElementRef;  //Variables
   data: number[] = []
   likesData: number[] = []
   catergories: string[] = []
@@ -43,7 +42,7 @@ export class ReportsComponent implements OnInit, AfterViewInit {
   }
   departmentCodeArray: string[] = []
   constructor(private reportsservice: ReportService, private toast: NgToastService, private adminservice: AdminService, private PrizeService: ShopService, private fb: FormBuilder, private socialFeedService: SocialFeedService) {
-
+    
     this.PrizeService.GetAllPrizes().subscribe({
       next: (prizes: any[]) => {
         prizes.forEach(element => {
@@ -62,10 +61,6 @@ export class ReportsComponent implements OnInit, AfterViewInit {
         console.log(response)
       }
     })
-  }
-
-  ngAfterViewInit(): void {
-    this.createChart()
   }
 
   generateGraph() {
@@ -346,7 +341,43 @@ export class ReportsComponent implements OnInit, AfterViewInit {
     })
   }
 
-  openPDFPolarAreaChart() {
+  depChallChartPDF() {
+    const chartContainer = this.chartContainer.nativeElement;
+
+    if (chartContainer) {
+      html2canvas(chartContainer).then((canvas) => {
+        const doc = new jsPDF('landscape');
+        const imgData = canvas.toDataURL('image/png');
+
+        // Set up the PDF document
+        doc.addImage(imgData, 'PNG', 10, 100, 190, 100);
+        
+        const currentDate = new Date();
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const year = String(currentDate.getFullYear());
+        const formattedDate = day + '/' + month + '/' + year;
+
+        const logoSrc = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa8wwT3d7Q-UCENieoWH3frKQ8-XkQMy6r1utPjjIIoQ&s';
+        const title = 'Ignition Overall Leaderboard';
+
+        doc.addImage(logoSrc, 'PNG', 80, 20, 55, 30);
+        doc.setFontSize(18);
+        doc.text(title, 105, 60, { align: 'center' });
+
+        const description = 'Challenges per department, as of ' + formattedDate; 
+        const moreInfo= 'The selected challenge type is'
+        doc.setFontSize(10);
+        doc.setTextColor(100);
+        doc.text(description, 105, 70, { align: 'center' });
+
+        // ... (your existing code for document setup)
+
+        doc.save('DepartmentChallengeReport.pdf');
+      });
+    } else {
+      console.error('Chart container not found.');
+    }
   }
 
   topRewardsPDF() {
