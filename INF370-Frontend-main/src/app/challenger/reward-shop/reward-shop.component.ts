@@ -42,9 +42,6 @@ export class RewardShopComponent {
     price:0,
     prizeTypeID:0
   }
-  /**
-   *
-   */
   cartCount : number = 0
   constructor(private PrizeService: ShopService, private route: Router, private toast:NgToastService) {
     if(localStorage.getItem('cart')){
