@@ -41,6 +41,7 @@ namespace BMWIgnition_API.Controllers
             var userId = httppUser.FindFirst(ClaimTypes.NameIdentifier)?.Value; // retrieve the user id  
             var user = await _userManager.FindByIdAsync(userId);
             var userName = user.UserName;
+            var challenges = await _context.Challenges.Include(s => s.ChallengeStatus).Include(m => m.Medal).Include(p => p.Prize).Include(ct => ct.ChallengeType).Where(u => u.Id == userId && u.IsArchived == false).ToListAsync();
 
             var auditTrail = new AuditTrail
             {
@@ -53,9 +54,9 @@ namespace BMWIgnition_API.Controllers
 
             _context.AuditTrails.Add(auditTrail);
             _context.SaveChanges();
-            AutoArchiveChallenge();
-          //Change eventInstace to eventInstances
-          return await _context.Challenges.Include(s=> s.ChallengeStatus).Include( m => m.Medal).Include( p => p.Prize).Include(ct => ct.ChallengeType).Where(u=> u.Id == userId && u.IsArchived==false).ToListAsync();
+            // AutoArchiveChallenge();
+            //Change eventInstace to eventInstances
+            return Ok(challenges);
         }
 
         [Authorize(AuthenticationSchemes = "Bearer", Roles = "ADMIN, SUPERARCHITECT, REWARDARCHITECT")]
