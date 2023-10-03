@@ -156,7 +156,7 @@ namespace BMWIgnition_API.Controllers
                 return NotFound();
             }
             //deletion rules
-            var challenges = await _context.Challenges.Where(x => x.ChallengeTypeID == challengeType.ChallengeTypeID).Where(x=> x.IsArchived == true).ToListAsync();
+            var challenges = await _context.Challenges.Where(x => x.ChallengeTypeID == challengeType.ChallengeTypeID).Where(x=> x.IsArchived == false).ToListAsync();
             if(challenges.Count() > 0)
             {
                 return BadRequest(new { message = "Cannot delete Challenge Type with active challenges!" });
