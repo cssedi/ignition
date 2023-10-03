@@ -32,7 +32,7 @@ export class ReportsComponent implements OnInit, AfterViewInit {
   challengeType!: FormGroup;
   selectedChallengeType!: number;
   topTenPrizes: any[] = [];
-  chart: any;
+  private chart: ApexCharts | undefined;
   departmentDetails: Department = {
     departmentId: 0,
     departmentCode: '',
@@ -65,7 +65,7 @@ export class ReportsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.filterDataByChallengeType()
+    this.createChart()
   }
 
   generateGraph() {
@@ -167,8 +167,6 @@ export class ReportsComponent implements OnInit, AfterViewInit {
 
   //filter data function
   filterDataByChallengeType() {
-
-
     //assign variable for challengeTpe ID
     this.selectedChallengeType = parseInt(this.challengeType.value.challengeTypeId)
     console.log(this.selectedChallengeType)
@@ -205,22 +203,11 @@ export class ReportsComponent implements OnInit, AfterViewInit {
         .subscribe({
           next: (response) => {
             this.DepartmentChallenges = response
-            this.createChart();
-            // get departments to add to array
-            this.DepartmentChallenges.forEach(department => {
-              //get department by Id
-              this.adminservice.getDepartmentById(department.department.departmentId)
-                .subscribe({
-                  next: (response) => {
-                    this.departmentDetails.departmentCode = response.departmentCode;
-                    console.log(this.departmentDetails.departmentCode)
-
-                  }
-                })
-            });
+            console.log(this.DepartmentChallenges) 
+            this.createChart()
           },
           complete: () => {
-
+             
           },
           error: (error) => {
           }
@@ -247,7 +234,6 @@ export class ReportsComponent implements OnInit, AfterViewInit {
     const departmentCodes = this.DepartmentChallenges.map(department => department.departmentCode.toString());
     const departmentChallengeCount = this.DepartmentChallenges.map(dc => dc.count);
     const backgroundColors = departmentChallengeCount.map(() => this.generateRandomColor());
-    console.log(departmentCodes)
     const getChartOptions = () => {
       return {
         series: departmentChallengeCount,
@@ -308,11 +294,18 @@ export class ReportsComponent implements OnInit, AfterViewInit {
       }
     }
 
-    if (document.getElementById("pie-chart") && typeof ApexCharts !== 'undefined') {
-      const chart = new ApexCharts(document.getElementById("pie-chart"), getChartOptions());
-      chart.render();
+    const pieChartElement = document.getElementById("pie-chart");
+
+    if (pieChartElement && typeof ApexCharts !== 'undefined') {
+      // Destroy the existing chart instance, if it exists
+      if (this.chart) {
+        this.chart.destroy();
+      }
+  
+      // Create a new chart instance
+      this.chart = new ApexCharts(pieChartElement, getChartOptions());
+      this.chart.render();
     }
-    ;
   }
 
   getAllChallengeTypes() {
