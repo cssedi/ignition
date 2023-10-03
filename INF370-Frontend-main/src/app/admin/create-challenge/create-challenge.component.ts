@@ -28,6 +28,7 @@ export class CreateChallengeComponent implements OnInit, AfterViewInit  {
   // varaibles
   maximumTokens : number = 0; 
   tokensExceeded : boolean = false
+  formSubmitted:boolean = false
   isSuperArchitect: boolean = false
   isRewardsArchitect:boolean = false;
   Departments: Department[]= [];
@@ -142,7 +143,7 @@ export class CreateChallengeComponent implements OnInit, AfterViewInit  {
       name: new FormControl('', Validators.required),
       startDate: new FormControl('', Validators.required),
       endDate: new FormControl('', Validators.required),
-      tokens: new FormControl('', [Validators.min(0)] ),
+      tokens: new FormControl(0, [Validators.min(0), Validators.required]),
       challengeTypeId: new FormControl('', Validators.required),
       prizeId: new FormControl(''),
       medalId: new FormControl('', Validators.required),
@@ -154,9 +155,9 @@ export class CreateChallengeComponent implements OnInit, AfterViewInit  {
       name: new FormControl('', Validators.required),
       startDate: new FormControl('', Validators.required),
       endDate: new FormControl('', Validators.required),
-      tokens: new FormControl('', [Validators.min(0)] ),
+      tokens: new FormControl(0, [Validators.min(0), Validators.required] ),
       challengeTypeId: new FormControl('', Validators.required),
-      prizeId: new FormControl(''),
+      prizeId: new FormControl(null),
       medalId: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
     })
@@ -236,7 +237,7 @@ export class CreateChallengeComponent implements OnInit, AfterViewInit  {
   }
   //Awards architect on submit
   onSubmit(){
-    
+    this.formSubmitted = true
     this.newChallenge.name = this.rewardArchitectForm.controls['name'].value
     this.newChallenge.description = this.rewardArchitectForm.controls['description'].value
     this.newChallenge.tokens = this.rewardArchitectForm.controls['tokens'].value
@@ -244,6 +245,9 @@ export class CreateChallengeComponent implements OnInit, AfterViewInit  {
     this.newChallenge.endDate = this.rewardArchitectForm.controls['endDate'].value
     this.newChallenge.challengeTypeId = parseInt(this.rewardArchitectForm.controls['challengeTypeId'].value)
     this.newChallenge.prizeId = parseInt(this.rewardArchitectForm.controls['prizeId'].value)
+    if(this.newChallenge.prizeId == 0){
+      this.newChallenge.prizeId = null
+    }
     this.newChallenge.medalId = this.rewardArchitectForm.controls['medalId'].value
     console.log(this.newChallenge)
     //check if image uploaded

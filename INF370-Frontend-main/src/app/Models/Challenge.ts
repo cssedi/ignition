@@ -8,11 +8,11 @@ export interface Challenge {
     challengeID: number;
     name: string;
     description: string;
-    tokens?: number;
+    tokens: number;
     endDate: Date;
     startDate: Date;
     challengeTypeId: number;
-    prizeId?: number;
+    prizeId: number |null;
     medalId: number;
     image: string;
     countdown:string|null;

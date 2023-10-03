@@ -43,7 +43,9 @@ export class ChallengesComponent implements OnInit,AfterViewInit {
     medal: { medalName: '', imageString: '', challengeTypeId: 0, challengeType: { challengeTypeID: 0, name: '', challenges: [] } },
     user: { name: '', email: '', password: '', username: '', bio: '', profilePicture: '', dateOfBirth: new Date(), surname: '', departmentId: 0 },
     prize: { prizeID: 0, name: '', description: '', frontImgURL: '', backImgURL: '', price: 0, prizeTypeID: 0 },
-    countdown: ''
+    countdown: '',
+    tokens: 0,
+    prizeId: null
   }
   dropDown:boolean = false
   isLoading : boolean = true 
@@ -55,7 +57,7 @@ export class ChallengesComponent implements OnInit,AfterViewInit {
   ngOnInit(): void {
 
     this.getActiveChallenges()
-     this.getArchivedChallenges()
+    this.getArchivedChallenges()
       // Get the maximun tokens 
       console.log(this.viewMaxTokenModal)
   this.challengeService.getMaximunTokens().subscribe({
