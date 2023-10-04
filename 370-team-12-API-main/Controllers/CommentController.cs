@@ -37,6 +37,17 @@ namespace Beam_Feed_API.Controllers
             return Ok(dbContext.Comments);
         }
 
+        [HttpGet("GetComments/{id}")]
+        public async Task<IActionResult> GetComments(int id)
+        {
+            var comments = await dbContext.Comments.Include(c=> c.Challenger).Where(x => x.PostID == id).ToListAsync();
+
+
+            return Ok(comments);
+    
+
+        }
+
         [Authorize(AuthenticationSchemes = "Bearer", Roles = "CHALLENGER")]
         [HttpGet]
         [Route("{CommentId:guid}")]
