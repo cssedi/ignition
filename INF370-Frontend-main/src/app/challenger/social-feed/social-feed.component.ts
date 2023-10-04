@@ -10,6 +10,7 @@ import type { DropdownOptions, DropdownInterface } from "flowbite";
 import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';
 import { OpenAIService } from 'src/app/services/OpenAI/open-ai.service';
+import { PostComment } from 'src/app/Models/comment';
 
 @Component({
   selector: 'app-social-feed',
@@ -22,7 +23,7 @@ export class SocialFeedComponent implements AfterViewInit {
   formSubmitted: boolean = false
   showSection: boolean = false;
   posts : any[] = []
-  comments : any[] = []
+  comments : PostComment[] = []
   comment : string = '' 
   searchTerm!: string
   //Open AI variables
@@ -42,6 +43,7 @@ export class SocialFeedComponent implements AfterViewInit {
   signOut(){
     localStorage.removeItem('token')
     localStorage.removeItem('user')
+    this.router.navigate([''])
 
   }
   ngAfterViewInit() : void {
@@ -126,6 +128,7 @@ export class SocialFeedComponent implements AfterViewInit {
     this.socialFeedService.GetAllPosts().subscribe({
       next: (posts : any[]) => {
         this.posts = posts.slice().reverse()
+        console.log(this.posts)
     
         console.log('user posts', this.posts)
       }, error: (error) => {
@@ -145,6 +148,17 @@ export class SocialFeedComponent implements AfterViewInit {
    if(this.showSection == true){
     this.showCommentPostId = posId 
    }
+
+   this.socialFeedService.GetComments(posId)
+   .subscribe({
+    next:(response)=>{
+      this.comments = response;
+      console.log(response)
+    }
+    ,complete: () => {
+      
+    }
+   })
   }
   Post(){
     let postDto : PostDto = {

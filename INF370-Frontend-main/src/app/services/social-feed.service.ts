@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { PostDto } from '../Models/post-dto';
 import { Observable } from 'rxjs';
 import { CommentDto } from '../Models/comment-dto';
+import { PostComment } from '../Models/comment';
 
 
 @Injectable({
@@ -31,6 +32,11 @@ export class SocialFeedService {
 
   GetAllPosts():Observable<any> {
     return this.http.get<any>('https://localhost:7269/api/Post/GetAllPosts', this.httpOptions);
+
+  }
+
+  GetComments(id:number):Observable<PostComment[]>{
+    return this.http.get<PostComment[]>('https://localhost:7269/api/Comment/GetComments/'+id, this.httpOptions);
 
   }
   
