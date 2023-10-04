@@ -13,7 +13,6 @@ import { DepartmentsComponent } from './admin/departments/departments.component'
 import { FunctionsComponent } from './admin/functions/functions.component';
 import { ForgotPasswordComponent } from './Auth/forgot-password/forgot-password.component';
 import { EmojisComponent } from './admin/emojis/emojis.component';
-import { InboxComponent } from './admin/inbox/inbox.component';
 import { RewardArchitectsComponent } from './admin/reward-architects/reward-architects.component';
 import { UsersComponent } from './admin/users/users.component';
 import { ChallengeTypesComponent } from './admin/challenge-types/challenge-types.component';
@@ -67,7 +66,6 @@ import { CommonModule, DatePipe } from '@angular/common';
     FunctionsComponent,
     ForgotPasswordComponent,
     EmojisComponent,
-    InboxComponent,
     RewardArchitectsComponent,
     UsersComponent,
     ChallengeTypesComponent,
