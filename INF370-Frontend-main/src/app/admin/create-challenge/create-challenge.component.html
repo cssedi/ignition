@@ -8,44 +8,62 @@
       <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
         <div class="sm:col-span-2">
           <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Challenge Name</label>
-          <input type="text" placeholder="John Doe" formControlName="name" class="block mt-2 w-full placeholder-gray-400 dark:placeholder-gray-500 rounded-lg bg-white border border-gray-400 px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-blue-400 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" [(ngModel)]="newChallenge.name" name="name" id="name"/>
+          <input type="text" placeholder="John Doe" formControlName="name" class="block mt-2 w-full placeholder-gray-400 dark:placeholder-gray-500 rounded-lg bg-white border border-gray-400 px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-blue-400 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" [(ngModel)]="newChallenge.name" name="name" id="name"
+          [ngClass]="{'border-red-500': (rewardArchitectForm.get('name')?.touched || formSubmitted) && rewardArchitectForm.get('name')?.invalid , 'border-gray-400': !rewardArchitectForm.get('name')?.invalid || !formSubmitted }"
+          />
+          <p *ngIf="rewardArchitectForm.controls['name'].invalid && (formSubmitted || rewardArchitectForm.controls['name'].touched)"
+          class="bottom-0 text-xs text-red-600 dark:text-red-400">This field is required!</p>
         </div>
     
         <div class="w-full">
          
           <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Start Date</label>
-          <input type="datetime-local" formControlName="startDate"  min="{{formattedDate}}" class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" [(ngModel)]="newChallenge.startDate" name="startDate" />
+          <input type="datetime-local" formControlName="startDate"  min="{{formattedDate}}" class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" [(ngModel)]="newChallenge.startDate" name="startDate" 
+          [ngClass]="{'border-red-500': (rewardArchitectForm.get('startDate')?.touched || formSubmitted) && rewardArchitectForm.get('startDate')?.invalid , 'border-gray-400': !rewardArchitectForm.get('startDate')?.invalid || !formSubmitted }"
+          />
+          <p *ngIf="rewardArchitectForm.controls['startDate'].invalid && (formSubmitted || rewardArchitectForm.controls['startDate'].touched)"
+          class="bottom-0 text-xs text-red-600 dark:text-red-400">This field is required!</p>
         </div>
 
      
         <div class="w-full">
         
           <label for="brand"  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">End Date</label>
-          <input [disabled]="newChallenge.endDate == newChallenge.startDate" type="datetime-local" formControlName="endDate"  min="{{newChallenge.startDate}}" placeholder="John Doe" class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" [(ngModel)]="newChallenge.endDate" name="endDate"   />
+          <input [disabled]="newChallenge.endDate == newChallenge.startDate" type="datetime-local" formControlName="endDate"  min="{{newChallenge.startDate}}" placeholder="John Doe" class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" [(ngModel)]="newChallenge.endDate" name="endDate" 
+          [ngClass]="{'border-red-500': (rewardArchitectForm.get('endDate')?.touched || formSubmitted) && rewardArchitectForm.get('endDate')?.invalid , 'border-gray-400': !rewardArchitectForm.get('endDate')?.invalid || !formSubmitted }"
+          />
+          <p *ngIf="rewardArchitectForm.controls['endDate'].invalid && (formSubmitted || rewardArchitectForm.controls['endDate'].touched)"
+          class="bottom-0 text-xs text-red-600 dark:text-red-400">This field is required!</p>
         </div>
 
         <div class="w-full" >
           <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tokens</label>
-          <input formControlName="tokens" type="number" min="0" placeholder="10" [max]="maximumTokens"  class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg bg-white border border-gray-200 px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-blue-400 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" [(ngModel)]="newChallenge.tokens" name="tokens" id="tokens"  />
-          <p class="text-red-500" *ngIf="this.newChallenge.tokens != null && this.newChallenge.tokens > this.maximumTokens">Token must be less than {{maximumTokens}} </p>
+          <input formControlName="tokens" type="number" min="0" placeholder="10" [max]="maximumTokens"  class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg bg-white border border-gray-200 px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-blue-400 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" [(ngModel)]="newChallenge.tokens" name="tokens" id="tokens" 
+          [ngClass]="{'border-red-500': (rewardArchitectForm.get('tokens')?.touched || formSubmitted) && rewardArchitectForm.get('tokens')?.invalid , 'border-gray-400': !rewardArchitectForm.get('tokens')?.invalid || !formSubmitted }"/>
+          <p *ngIf="rewardArchitectForm.controls['tokens'].invalid && (formSubmitted || rewardArchitectForm.controls['tokens'].touched)"
+          class="bottom-0 text-xs text-red-600 dark:text-red-400">This field is required!</p>
+          <p class="bottom-0 text-xs text-red-600 dark:text-red-400" *ngIf="this.newChallenge.tokens != null && this.newChallenge.tokens > this.maximumTokens">Token must be less than {{maximumTokens}} </p>
         </div>
 
         <div>
           <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Challenge Type</label>
           
-          <select id="category" formControlName="challengeTypeId" (change)="getMedalsByChallengeType()" class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg bg-white border border-gray-400 px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-blue-400 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" [(ngModel)]="newChallenge.challengeTypeId" name="challengTypeId" >
-            <option value="{{challengeType.challengeTypeID |number}}" *ngFor="let challengeType of challengesTypes">{{challengeType.name}}</option>            
+          <select id="category" formControlName="challengeTypeId" (change)="getMedalsByChallengeType()" class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg bg-white border border-gray-400 px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-blue-400 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300" [(ngModel)]="newChallenge.challengeTypeId" name="challengTypeId" 
+          [ngClass]="{'border-red-500': (rewardArchitectForm.get('challengeTypeId')?.touched || formSubmitted) && rewardArchitectForm.get('challengeTypeId')?.invalid , 'border-gray-400': !rewardArchitectForm.get('challengeTypeId')?.invalid || !formSubmitted }">
+        
+            <option value="{{challengeType.challengeTypeID |number}}" *ngFor="let challengeType of challengesTypes">{{challengeType.name}}</option>    
           </select>
-
+            <p *ngIf="rewardArchitectForm.controls['challengeTypeId'].invalid && (formSubmitted || rewardArchitectForm.controls['challengeTypeId'].touched)"
+            class="bottom-0 text-xs text-red-600 dark:text-red-400">This field is required!</p>   
         </div>
 
         
 
 
         <div  >
-          <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> {{newChallenge.prizeId}}Prize</label>           
+          <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prize</label>           
           <select formControlName="prizeId"  id="category" class="block mt-2 w-full placeholder-gray-400/70 dark:placeholder-gray-500 rounded-lg bg-white border border-gray-400 px-5 py-2.5 text-gray-700 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 dark:border-blue-400 dark:bg-gray-900 dark:text-gray-300 dark:focus:border-blue-300"  name="prizeId" [(ngModel)]="newChallenge.prizeId" >
-            <option value="0">Select Prize Type</option>
+            <option disabled>Select Prize Type</option>
             <option value="{{prize.prizeID |number}}" *ngFor="let prize of prizes">{{prize.name}}</option>            
           </select>
         </div>
@@ -57,7 +75,6 @@
         <button id="dropdownButton" formControlName="medalId" class=" text-black border block mt-2 w-full bg-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
           <span *ngIf="selectedMedal.medalId == 0">Select Medal </span>
           <div class="flex" *ngIf="selectedMedal.imageString != ''">
-              
              <img class="w-7 h-6" src="{{selectedMedal.imageString}}" alt="">
               <p class="ml-3 text-sm text-gray-700">{{selectedMedal.medalName}} </p>
             </div>
