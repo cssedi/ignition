@@ -20,6 +20,7 @@ export class OtherProfileComponent implements AfterViewInit, OnInit {
   medals! : any[] 
   challengerId : string = ''
   posts ! : any[]
+  loggedInUser: any
   user : any = {
     name : '',
     surname:  '',
@@ -32,6 +33,8 @@ export class OtherProfileComponent implements AfterViewInit, OnInit {
   }
   ngOnInit(): void {
     this.viewProfile(this.challengerId)
+    this.loggedInUser = JSON.parse(localStorage.getItem('user')!)
+    console.log('logged in user', this.loggedInUser)
   }
   ngAfterViewInit(): void {
    

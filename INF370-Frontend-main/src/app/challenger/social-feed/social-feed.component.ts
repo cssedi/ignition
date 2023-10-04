@@ -21,6 +21,8 @@ export class SocialFeedComponent implements AfterViewInit {
   // Variables 
   postForm!:FormGroup;
   formSubmitted: boolean = false
+  toggleCommentDropDown: boolean = false
+  togglePostDropDown : boolean = false
   showSection: boolean = false;
   posts : any[] = []
   comments : PostComment[] = []
@@ -61,6 +63,8 @@ export class SocialFeedComponent implements AfterViewInit {
       }
     })
   }
+
+
 
   searchAudit() {
     console.log(this.posts)
@@ -160,6 +164,19 @@ export class SocialFeedComponent implements AfterViewInit {
     }
    })
   }
+  showButtonCommentId : number = 0;
+  toggleCommentOptions(commentId : number) {
+    this.showButtonCommentId = commentId
+    console.log("Button clicked");
+    this.toggleCommentDropDown = !this.toggleCommentDropDown;
+    console.log(this.toggleCommentDropDown);
+  }
+  showButtonPostId:number =0
+  togglePostOptions(PostId : number) {
+    this.showButtonPostId = PostId
+    this.togglePostDropDown = !this.togglePostDropDown
+  }
+
   Post(){
     let postDto : PostDto = {
       text: this.postForm.value.text,
@@ -203,6 +220,7 @@ export class SocialFeedComponent implements AfterViewInit {
       },
       complete: () => {
         this.getUserPosts()
+        window.location.reload();
       }
     })
   }

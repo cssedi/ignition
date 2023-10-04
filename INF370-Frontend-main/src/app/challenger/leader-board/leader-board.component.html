@@ -110,8 +110,11 @@
                                         class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
                                         <div class="inline-flex items-center gap-x-3">
                                             <div class="flex items-center gap-x-2">
-                                                <img class="object-cover w-8 h-8 rounded-full"
-                                                    src="{{user[0].profilePicture}}" alt="">
+                                                 <!-- placeholder profile picture if profile picture not given -->
+                                                     <img *ngIf="user[0].profilePicture == null" class="w-8 h-8 rounded-full" 
+                                                     src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="user photo">
+                                                    <img *ngIf="user[0].profilePicture != null" class="w-8 h-8 rounded-full" 
+                                                    src="{{user[0].profilePicture}}" alt="user photo">
                                                 <div>
                                                     <h2 class="text-md font-medium text-gray-800 dark:text-white ">
                                                         {{ user[0].name }} {{ user[0].surname }}</h2>
@@ -201,8 +204,11 @@
                                         class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
                                         <div class="inline-flex items-center gap-x-3">
                                             <div class="flex items-center gap-x-2">
-                                                <img class="object-cover w-8 h-8 rounded-full"
-                                                    src="{{user[0].profilePicture}}" alt="">
+                                            <!-- placeholder profile picture if profile picture not given -->
+                                                <img *ngIf="user[0].profilePicture == null" class="w-8 h-8 rounded-full" 
+                                                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="user photo">
+                                                <img *ngIf="user[0].profilePicture != null" class="w-8 h-8 rounded-full" 
+                                                src="{{user[0].profilePicture}}" alt="user photo">
                                                 <div>
                                                     <h2 class="text-md font-medium text-gray-800 dark:text-white ">
                                                         {{user[0].name}} {{user[0].surname}}</h2>

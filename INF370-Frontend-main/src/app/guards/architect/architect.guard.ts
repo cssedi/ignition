@@ -5,7 +5,7 @@ import jwt_decode from "jwt-decode";
 @Injectable({
   providedIn: 'root'
 })
-export class AdminGaurdService {
+export class ArchitectGuard {
 
   constructor(private router : Router) { }
   canActivate(): boolean {
@@ -25,7 +25,8 @@ export class AdminGaurdService {
     var decoded : TokenData = jwt_decode(token);
     
     console.log(decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']);
-    if (decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] == 'ADMIN') {
+    if (decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] == 'SUPERARCHITECT'
+    || decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] == 'REWARDARCHITECT') {
       return true;
     } else {
       this.router.navigate(['login']); // Correctly navigate to the 'home' route

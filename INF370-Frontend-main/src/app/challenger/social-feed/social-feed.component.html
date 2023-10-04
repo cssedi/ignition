@@ -201,15 +201,7 @@
             </svg>
             </button>
           
-          <button data-collapse-toggle="navbar-user" type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-user" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M1 1h15M1 7h15M1 13h15" />
-            </svg>
-          </button>
+
         </div>
 
         <button data-collapse-toggle="mobile-menu-2" type="button"
@@ -258,51 +250,7 @@
 </header>
 
 <!-- Main modal -->
-<div id="defaultModal" tabindex="-1" aria-hidden="true"
-  class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-  <div class="relative w-full max-w-2xl max-h-full">
-    <!-- Modal content -->
-    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-      <!-- Modal header -->
-      <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-          Terms of Service
-        </h3>
-        <button type="button"
-          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-          data-modal-hide="defaultModal">
-          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clip-rule="evenodd"></path>
-          </svg>
-          <span class="sr-only">Close modal</span>
-        </button>
-      </div>
-      <!-- Modal body -->
-      <div class="p-6 space-y-6">
-        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-          With less than a month to go before the European Union enacts new consumer privacy laws for its citizens,
-          companies around the world are updating their terms of service agreements to comply.
-        </p>
-        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-          The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to
-          ensure a common set of data rights in the European Union. It requires organizations to notify users as soon as
-          possible of high-risk data breaches that could personally affect them.
-        </p>
-      </div>
-      <!-- Modal footer -->
-      <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-        <button data-modal-hide="defaultModal" type="button"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">I
-          accept</button>
-        <button data-modal-hide="defaultModal" type="button"
-          class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Decline</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <!-- component -->
 
@@ -416,7 +364,7 @@
         <!-- Chat -->
         <form class="overflow-y-auto lg:max-h-[60rem] 2xl:max-h-fit">
 
-          <article class="mb-5 rounded-lg p-4 bg-white" *ngFor="let post of posts">
+          <article class="mb-5 rounded-lg p-4 bg-white" *ngFor="let post of posts;let i=index">
             <footer class="flex items-center justify-between mb-2">
               <!-- Profile Pic -->
               <div  [routerLink]="['/other-profile', post.challenger.id]" class="flex items-center">
@@ -442,7 +390,7 @@
                 </div>
               </div>
            
-              <button id="dropdownComment1Button" data-dropdown-toggle="dropdownComment1"  *ngIf="post.challenger.userName == user.userName"
+              <button id="dropdownComment1Button" data-dropdown-toggle="dropdownComment1"  *ngIf="post.challenger.userName == user.userName" (click)="togglePostOptions(post.postID)"
                 class="border-gray-50 border inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:ring-gray-600"
                 type="button">
                 <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -454,8 +402,8 @@
                 <span class="sr-only">Comment settings</span>
               </button>
               <!-- Dropdown menu -->
-              <div id="dropdownComment1"
-                class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-36 dark:bg-gray-700 dark:divide-gray-600">
+              <div id="dropdownComment1" *ngIf="togglePostDropDown" [class.hidden]="post.postID != showButtonPostId" id="{{post.postID}} "
+                class="z-10 absolute ml-[480px] mt-20 bg-white divide-y divide-gray-100 rounded shadow w-36 dark:bg-gray-700 dark:divide-gray-600">
                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                   aria-labelledby="dropdownMenuIconHorizontalButton">
                  
@@ -503,7 +451,7 @@
             <div [class.hidden]="post.postID != showCommentPostId" id="{{post.postID}} ">
               <div  class="overflow-y-scroll max-h-40 no-scrollbar">
                 <!-- First Commment-->
-                <article class="p-2 ml-12 mb-5 bg-gray-50 border rounded-lg" *ngFor="let comment of comments">
+                <article class="p-2 ml-12 mb-5 bg-gray-50 border rounded-lg relative" *ngFor="let comment of comments">
                   <footer class="flex items-center justify-between mb-2">
                     <div class="flex items-center">
                       <p class="inline-flex items-center mr-3 text-sm font-semibold text-gray-900 dark:text-white"><img
@@ -512,20 +460,20 @@
                       <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
                           title="February 8th, 2022"> </time></p>
                     </div>
-                    <button id="dropdownComment4Button" data-dropdown-toggle="dropdownComment4"  *ngIf="comment.challenger.userName == user.userName"
+                    <button id="dropdownComment4Button"  *ngIf="comment.challenger.userName == user.userName" 
                       class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:ring-gray-600"
                       type="button">
-                      <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                      <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" (click)="toggleCommentOptions(comment.commentID)"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
                         </path>
                       </svg>
-                      <span class="sr-only">Comment settings</span>
+                      <span class="sr-only" >Comment settings</span>
                     </button>
                     <!-- Dropdown menu -->
-                    <div id="dropdownComment4"
-                      class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-36 dark:bg-gray-700 dark:divide-gray-600">
+                    <div *ngIf="toggleCommentDropDown" [class.hidden]="comment.commentID != showButtonCommentId" id="{{comment.commentID}} "
+                      class="z-30 ml-[450px] mt-20 absolute bg-white divide-y divide-gray-100 rounded shadow w-36 dark:bg-gray-700 dark:divide-gray-600">
                       <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                         aria-labelledby="dropdownMenuIconHorizontalButton">
                        

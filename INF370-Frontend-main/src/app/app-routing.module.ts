@@ -8,7 +8,6 @@ import { DepartmentsComponent } from './admin/departments/departments.component'
 import { AppComponent } from './app.component';
 import { FunctionsComponent } from './admin/functions/functions.component';
 import { EmojisComponent } from './admin/emojis/emojis.component';
-import { InboxComponent } from './admin/inbox/inbox.component';
 import { RewardArchitectsComponent } from './admin/reward-architects/reward-architects.component';
 import { UsersComponent } from './admin/users/users.component';
 import { ChallengeTypesComponent } from './admin/challenge-types/challenge-types.component';
@@ -47,54 +46,56 @@ import { ViewCalendarComponent } from './view-calendar/view-calendar.component';
 import { HelpPageComponent } from './help-page/help-page.component';
 import { DatabaseComponent } from './admin/database/database.component';
 import { EditChallengeComponent } from './reward-architect/edit-challenge/edit-challenge.component';
+import { SuperArchitectGuard } from './guards/super-architect/super-architect.guard';
+import { RewardArchitectService } from './guards/reward-architect.service';
+import { SuperGuard } from './guards/non-challenger/superior-guard.guard';
+import { ArchitectGuard } from './guards/architect/architect.guard';
 
 const routes: Routes = [ 
   {path: '', component : HomeComponent},
-  {path: 'login', component : LoginComponent},
   {path: 'home', component : HomeComponent},
+  {path: 'login', component : LoginComponent},
   {path: 'social-feed', component : SocialFeedComponent,canActivate: [ChallengerGaurdService]},
-  {path: 'departments', component : DepartmentsComponent},
-  {path: 'functions', component : FunctionsComponent},
-  {path: 'emojis', component : EmojisComponent},
-  {path: 'inbox', component : InboxComponent},
+  {path: 'departments', component : DepartmentsComponent, canActivate:[AdminGaurdService]},
+  {path: 'functions', component : FunctionsComponent, canActivate:[AdminGaurdService]},
+  {path: 'challenge-settings', component : EmojisComponent, canActivate:[AdminGaurdService]},
   {path: 'reward-architects', component : RewardArchitectsComponent},
   {path: 'users', component : UsersComponent, canActivate: [AdminGaurdService]},
-  {path: 'challenge-types', component : ChallengeTypesComponent},
-  {path: 'reward-category', component : RewardCategoryComponent},
-  {path: 'medals', component : MedalsComponent},
-  {path: 'reports', component : ReportsComponent},
-  {path: 'challenges', component : ChallengesComponent},
-  {path: 'create-challenge', component : CreateChallengeComponent},
+  {path: 'challenge-types', component : ChallengeTypesComponent, canActivate:[AdminGaurdService]},
+  {path: 'reward-category', component : RewardCategoryComponent, canActivate:[AdminGaurdService]},
+  {path: 'medals', component : MedalsComponent, canActivate:[AdminGaurdService]},
+  {path: 'reports', component : ReportsComponent, canActivate:[AdminGaurdService]},
+  {path: 'challenges', component : ChallengesComponent, canActivate:[SuperGuard]},
+  {path: 'create-challenge', component : CreateChallengeComponent, canActivate:[SuperGuard]},
   {path: 'forgot-password', component : ForgotPasswordComponent},
   {path: 'library', component : LibraryComponent, canActivate: [AuthService]},
   {path: 'register', component : RegisterComponent},
   {path: 'reset-password', component : ResetPasswordComponent},
-  {path: 'user-challenges', component : UserChallengesComponent,canActivate: [ChallengerGaurdService]},
-  {path: 'admin', component : AdminDashboardComponent},
-  {path: 'complete-challenge/:challengeId', component : CompleteChallengeComponent},
-  {path: 'complete-challenge/:challengeId', component : CompleteChallengeComponent},
-  {path: 'reward-shop', component : RewardShopComponent},
-  {path: 'submitions', component :  ViewSubmisionsComponent},
-  {path: 'create-prize', component :  CreatePrizeComponent},
-  {path: 'orders', component :  OrdersComponent},
-  {path: 'view-rewards', component :  ViewRewardShopComponent},
-  {path: 'update-reward/:rewardId', component :  UpdateRewardComponent},
-  {path: 'view-faqs', component :  FAQsComponent},
-  {path: 'profile', component :  ProfileComponent},
-  {path: 'other-profile/:challengerId', component :  OtherProfileComponent},
-  {path: 'reward-architect-challenges', component :  ChallengesComponent},
+  {path: 'user-challenges', component : UserChallengesComponent, canActivate: [ChallengerGaurdService]},
+  {path: 'admin', component : AdminDashboardComponent, canActivate:[AdminGaurdService]},
+  {path: 'complete-challenge/:challengeId', component : CompleteChallengeComponent, canActivate: [ChallengerGaurdService]},
+  {path: 'complete-challenge/:challengeId', component : CompleteChallengeComponent, canActivate: [ChallengerGaurdService]},
+  {path: 'reward-shop', component : RewardShopComponent, canActivate: [ChallengerGaurdService] },
+  {path: 'submitions', component :  ViewSubmisionsComponent, canActivate:[ArchitectGuard]},
+  {path: 'create-prize', component :  CreatePrizeComponent, canActivate:[AdminGaurdService]},
+  {path: 'orders', component :  OrdersComponent, canActivate:[AdminGaurdService]},
+  {path: 'view-rewards', component :  ViewRewardShopComponent, canActivate:[AdminGaurdService]},
+  {path: 'update-reward/:rewardId', component :  UpdateRewardComponent, canActivate:[AdminGaurdService]},
+  {path: 'view-faqs', component :  FAQsComponent, canActivate:[AdminGaurdService]},
+  {path: 'profile', component :  ProfileComponent,canActivate: [ChallengerGaurdService]},
+  {path: 'other-profile/:challengerId', component :  OtherProfileComponent, canActivate: [ChallengerGaurdService]},
+  {path: 'reward-architect-challenges', component :  ChallengesComponent, canActivate:[SuperGuard]},
   {path: 'test', component :  TestComponent},
-  {path: 'my-orders', component :  MyOrdersComponent},
-  {path: 'challenge-reports', component :  ChallengeReportsComponent},
-  {path: 'leader-board', component :  LeaderBoardComponent},
-  {path: 'supplier-orders', component :  SupplierPlacedOrdersComponent},
-  {path: 'help-dash', component :  HelpDashComponent},
-  {path: 'audit', component :  AuditTrailComponent},
-  {path: 'view-calendar', component :  ViewCalendarComponent},
-  {path: 'help-page', component :  HelpPageComponent},
+  {path: 'my-orders', component :  MyOrdersComponent, canActivate:[ChallengerGaurdService]},
+  {path: 'challenge-reports', component :  ChallengeReportsComponent, canActivate:[SuperGuard]},
+  {path: 'leader-board', component :  LeaderBoardComponent, canActivate:[SuperGuard]},
+  {path: 'supplier-orders', component :  SupplierPlacedOrdersComponent, canActivate:[AdminGaurdService]},
+  {path: 'help-dash', component :  HelpDashComponent, canActivate:[AdminGaurdService]},
+  {path: 'audit', component :  AuditTrailComponent, canActivate:[AdminGaurdService]},
+  {path: 'view-calendar', component :  ViewCalendarComponent, canActivate:[SuperGuard]},
   {path: 'help-page', component :  HelpPageComponent},
   {path:'database', component:DatabaseComponent},
-  {path: 'edit-challenge/:challengeId', component : EditChallengeComponent},
+  {path: 'edit-challenge/:challengeId', component : EditChallengeComponent, canActivate:[SuperGuard]},
 
 ];
 
