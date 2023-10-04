@@ -26,7 +26,7 @@ export class UserChallengesComponent implements OnInit, AfterViewInit {
       image: '',
       challengeType: { challengeTypeID: 0, name: '', challenges: [] },
       medal: { medalName: '', imageString: '', challengeTypeId: 0, challengeType: { challengeTypeID: 0, name: '', challenges: [] } },
-      user: { name: '', email: '', password: '', username: '', bio: '', profilePicture: '', dateOfBirth: new Date(), surname: '', departmentId: 0 },
+      user: { name: '', email: '', password: '', userName: '', bio: '', profilePicture: '', dateOfBirth: new Date(), surname: '', departmentId: 0 },
       prize: { prizeID: 0, name: '', description: '', frontImgURL: '', backImgURL: '', price: 0, prizeTypeID: 0 },
       countdown: '',
       tokens: 0,
