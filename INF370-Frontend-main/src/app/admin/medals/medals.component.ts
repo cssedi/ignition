@@ -90,7 +90,7 @@ export class MedalsComponent  implements AfterViewInit{
         this.deleteModal = false 
       },  
       error : (error) => {
-      console.log('error on delete', error.error)
+        this.toast.error({detail:"ERROR", summary:error.error.message, duration:5000})
       }
     })
   }
