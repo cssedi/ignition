@@ -71,7 +71,7 @@ namespace BMWIgnition_API.Controllers
                     var auditTrail = new AuditTrail
                     {
                         UserId = user.Name + " " + user.Surname, // Replace with the actual user ID
-                        Action = user.Name + " User Created",
+                        Action = user.Name + " Reset their Password",
                         Timestamp = DateTime.Now,
                         Amount = 0,
                         Quantity = 0
