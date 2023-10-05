@@ -102,7 +102,7 @@ namespace BMWIgnition_API.Controllers
                         var auditTrail = new AuditTrail
                         {
                             UserId = user.Name + " " + user.Surname,
-                            Action = "Order placed",
+                            Action = "Ordered" + prize.Name,
                             Timestamp = DateTime.Now,
                             Amount = prize.Price,
                             Quantity = 1
