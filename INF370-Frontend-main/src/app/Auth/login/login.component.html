@@ -61,6 +61,7 @@
                         </span>
 
                         <input type="password" formControlName="password"
+                            onpaste="return false;" ondrop="return false;" autocomplete="off" 
                             [ngClass]="{'border-red-500': loginForm.get('password')?.invalid && formSubmitted, 'border-gray-400': !loginForm.get('password')?.hasError || !formSubmitted }"
                             class="block w-full py-3 text-gray-700 bg-white borde border-gray-400 rounded-lg px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             placeholder="*************">
@@ -108,9 +109,9 @@
             </div>
 
             <div class="flex flex-col items-center pb-10  ">
-                                <!-- placeholder profile picture if profile picture not given -->
-                                <img *ngIf="user.profile == null" class="w-8 h-8 rounded-full" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="user photo">
-                                <img *ngIf="user.profile != null" class="w-8 h-8 rounded-full" src="{{user.profile}}" alt="user photo">
+                <!-- placeholder profile picture if profile picture not given -->
+                <img *ngIf="user.profile == null" class="w-8 h-8 rounded-full" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="user photo">
+                <img *ngIf="user.profile != null" class="w-8 h-8 rounded-full" src="{{user.profile}}" alt="user photo">
                 <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{user.name}} {{user.surname}} </h5>
                 <span class="text-md text-gray-500 dark:text-gray-400">continue as ...</span>
                 <div class="flex mt-4 space-x-3 md:mt-6">
