@@ -26,6 +26,7 @@ export class ViewSubmisionsComponent {
       next : (response) => {
         this.messages = response
         console.log(response)
+        window.location.reload()
       },
       error: (err) => {
        console.log(err)
