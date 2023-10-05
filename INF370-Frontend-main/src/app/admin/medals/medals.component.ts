@@ -18,6 +18,7 @@ export class MedalsComponent  implements AfterViewInit{
   base64Image: string | null = null;
   myForm: FormGroup;
   updateForm: FormGroup;
+  formSubmitted:boolean = false
   name: string = '';
   showModal : boolean = false
   editModal : boolean = false 
@@ -146,6 +147,7 @@ export class MedalsComponent  implements AfterViewInit{
   }
   //CRUD Medal start
   createMedal(){
+    this.formSubmitted = true
     var medal : MedalDto ={
     medalName : this.name,
     imageString : this.base64Image!,
@@ -154,17 +156,24 @@ export class MedalsComponent  implements AfterViewInit{
 
 
     }
-    this.adminService.createMedal(medal).subscribe({
-      next: (value) => {
-      this.toast.success({detail:"SUCCESS", summary:"Medal created successfully", duration:5000})      
-    }, 
-      error : (error) => {
-      console.log('error on create', error.error)
-      }, complete: () => {
-        this.showModal = false
-        this.getAllMedal()
+    if(this.base64Image){
+      if(this.myForm.valid){
+        this.adminService.createMedal(medal).subscribe({
+          next: (value) => {
+          this.toast.success({detail:"SUCCESS", summary:"Medal created successfully", duration:5000})      
+        }, 
+          error : (error) => {
+          console.log('error on create', error.error)
+          }, complete: () => {
+            this.showModal = false
+            this.getAllMedal()
+          }
+        })
       }
-    })
+
+  }else{
+    this.toast.error({detail:"ERROR", summary:"Please upload an image", duration:5000})
+  }
   }
 
 
@@ -175,18 +184,28 @@ export class MedalsComponent  implements AfterViewInit{
       challengeTypeId: parseInt(this.updateForm.value.challengeTypeId),
       challengeType: {challengeTypeID: 0,name: '',challenges: []}
     }
-    this.adminService.EditMedel(this.medalId, medal).subscribe({
-      next: (value) => {
-        this.toast.success({detail:"SUCCESS", summary:"Medal updated successfully", duration:5000})
-      }, complete: () => {
-        const modal = new Modal(this.$editModalElement, this.options);
-        this.getAllMedal()
-        this.toggleEditModal()
-      },
-      error : (error) => {
-      console.log('error on create', error.error)
+
+    if(this.base64Image){
+      if(this.updateForm.valid){
+        this.adminService.EditMedel(this.medalId, medal).subscribe({
+          next: (value) => {
+            this.toast.success({detail:"SUCCESS", summary:"Medal updated successfully", duration:5000})
+            console.log('medal updated', value)
+          }, complete: () => {
+            const modal = new Modal(this.$editModalElement, this.options);
+            this.getAllMedal()
+            this.toggleEditModal()
+          },
+          error : (error) => {
+          console.log('error on create', error.error)
+          }
+        })
       }
-    })
+
+  }else{
+    this.toast.error({detail:"ERROR", summary:"Please upload an image", duration:5000})
+  }
+
 
     
 
