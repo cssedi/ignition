@@ -362,7 +362,7 @@
                     </span>
                   </li>
                   <!-- Prize -->
-                  <li class="flex space-x-1 items-center">
+                  <li class="flex space-x-1 items-center" *ngIf="challenge.prize != null">
                     <img class="flex-shrink-0 w-6 h-6 text-grey-600 dark:text-grey-500"
                       src="{{challenge.prize.frontImgURL}}" alt="">
                     <span class="text-base font-normal leading-tight text-gray-600 dark:text-gray-400">
@@ -441,14 +441,14 @@
 
                   <small class="text-sm text-gray-700"></small>
                 </div>
-                <p class="text-gray-700">Ends on <span class="text-gray-900">{{instance.challenge.endDate}}</span> </p>
+                <p class="text-gray-700">Ends on <span class="text-gray-900">{{instance.challenge.endDate | date}}</span> </p>
                 <p class="mt-3 text-gray-700 text-md pb-2">
                   {{instance.challenge.description}}
                 </p>
                 <ul role="list" class="space-y-5 my-7">
                   <li class="flex space-x-3  decoration-gray-600">
                     <!-- Prize -->
-                    <img src="{{instance.challenge.prize.imageString}}"
+                    <img src="{{instance.challenge.prize.frontImgURL}}"
                       class="flex-shrink-0 w-5 h-5 text-gray-400 dark:text-gray-600" alt="">
                     <span
                       class="text-base font-normal leading-tight text-gray-700">{{instance.challenge.prize.name}}</span>

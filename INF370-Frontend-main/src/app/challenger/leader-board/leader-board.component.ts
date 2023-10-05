@@ -283,7 +283,7 @@ export class LeaderBoardComponent implements OnInit {
 
         // Problem again is the infitite completion rates
         if (tableHeaders[i] === 'Participation') {
-          doc.text("Completion rates", xDataPos + 2, yPos + 8);
+          doc.text(chall[1].toString(), xDataPos + 2, yPos + 8);
           xDataPos += colWidths[i];
         }
 
@@ -344,8 +344,8 @@ export class LeaderBoardComponent implements OnInit {
     const topDepChallengers = this.topOverallChallengers.map(challenger => challenger[0].name + ' ' + challenger[0].surname)
 
     // Using mock data to avoid infinite rates.
-    // const completionRates = this.topOverallChallengers.map(cr => cr[1].value);
-    const completionRates = [1, 1, 0.9, 0.87, 0.86, 0.8, 0.7, 0.6, 0.5, 0.4];
+    const completionRates = this.topOverallChallengers.map(cr => cr[1]);
+    //const completionRates = [1, 1, 0.9, 0.87, 0.86, 0.8, 0.7, 0.6, 0.5, 0.4];
 
     // Colours don't need to be random ig?
     // Simplified teh random colour generation and integrated it
