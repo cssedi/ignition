@@ -55,7 +55,8 @@ export class CreateChallengeComponent implements OnInit, AfterViewInit  {
     name: '',
     awardsArchitectId: '',
     functionId: 0,
-    checked: null
+    checked: null,
+    awardsArchitect: undefined
   }
   departmentChallengeDetails : DepartmentChallenge ={
     ChallengeID: 0,
@@ -256,7 +257,6 @@ export class CreateChallengeComponent implements OnInit, AfterViewInit  {
     if (this.base64Image) {
       this.newChallenge.image = this.base64Image;
       if(this.rewardArchitectForm.valid){
-
             //check for medalId error
             if(this.newChallenge.medalId != null)
             {
@@ -270,6 +270,7 @@ export class CreateChallengeComponent implements OnInit, AfterViewInit  {
                 },
                 error: (error) =>{
                   this.toast.error({detail:"ERROR", summary: error.error.message, duration:5000})
+                  this.ifIsLoading =false
                 }
               })
             }
