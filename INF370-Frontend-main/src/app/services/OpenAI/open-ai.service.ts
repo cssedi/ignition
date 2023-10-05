@@ -18,7 +18,7 @@ export class OpenAIService {
       'Authorization': `Bearer ${this.apiKey}`
     });
   
-    const promptText = `Please analyse, the following text, please tell me if the text is positive, negative, or neutral in nature.  please only return 1 word "${text.toLowerCase()}"`;
+    const promptText = `Please analyse the sentiment, the following text, please tell me if the text is positive, negative, or neutral in nature. If the text is talking negatively about a person, place or thing please return negative.  please only return 1 word "${text.toLowerCase()}"`;
     const requestBody = {
       prompt: promptText,
       max_tokens: 1

@@ -3,6 +3,7 @@ export interface Department {
     departmentCode: string;
     name: string;
     awardsArchitectId: string
+    awardsArchitect: any
     functionId: number;
     checked: boolean|null;
   }
