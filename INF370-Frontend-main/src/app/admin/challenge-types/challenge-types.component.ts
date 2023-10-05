@@ -29,11 +29,13 @@ export class ChallengeTypesComponent {
     this.showModal = !this.showModal;
     this.modalVisible = !this.modalVisible;
     this.createChallengeTypeForm.reset()
+    this.updateChallengeTypeForm.reset()
   }
 
   toggleUpdateChallengeTypeModal() {
     this.showUpdateChallengeTypeModal = !this.showUpdateChallengeTypeModal;
     this.updateChallengeTypeForm.reset()
+    this.createChallengeTypeForm.reset()
   }
 
   toggleDeleteChallengeTypeModal() {

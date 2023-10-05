@@ -74,6 +74,7 @@ export class CreateChallengeComponent implements OnInit, AfterViewInit  {
     challengeTypeID: 0, name: '',challenges: []}
   prizes: Prize[]=[];
   $targetEl!: HTMLElement ;
+  ifIsLoading: boolean = false
   // set the element that trigger the dropdown menu on click
    $triggerEl!: HTMLElement 
    departChallenges : any[] = []
@@ -238,6 +239,7 @@ export class CreateChallengeComponent implements OnInit, AfterViewInit  {
   //Awards architect on submit
   onSubmit(){
     this.formSubmitted = true
+    this.ifIsLoading = true
     this.newChallenge.name = this.rewardArchitectForm.controls['name'].value
     this.newChallenge.description = this.rewardArchitectForm.controls['description'].value
     this.newChallenge.tokens = this.rewardArchitectForm.controls['tokens'].value
@@ -264,6 +266,7 @@ export class CreateChallengeComponent implements OnInit, AfterViewInit  {
                   this.toast.success({detail:"SUCCESS", summary: "challenge created successfully", duration:5000})
                 }, complete : () => { 
                 this.router.navigate(['/reward-architect-challenges'])
+                this.ifIsLoading = false
                 },
                 error: (error) =>{
                   this.toast.error({detail:"ERROR", summary: error.error.message, duration:5000})

@@ -66,6 +66,17 @@ namespace BMWIgnition_API.Controllers
 
                 if (result.Succeeded)
                 {
+
+                    //create audit entry
+                    var auditTrail = new AuditTrail
+                    {
+                        UserId = user.Name + " " + user.Surname, // Replace with the actual user ID
+                        Action = user.Name + " Reset their Password",
+                        Timestamp = DateTime.Now,
+                        Amount = 0,
+                        Quantity = 0
+                    };
+                    await _appDbContext.AuditTrails.AddAsync(auditTrail);
                     // the user's password has been reset successfully
                     return Ok(new { message = "Password was changed" });
                 }
@@ -129,6 +140,18 @@ namespace BMWIgnition_API.Controllers
                     client.Send(message);
                     client.Disconnect(true);
                 }
+
+                //create audit entry
+                var auditTrail = new AuditTrail
+                {
+                    UserId = user.Name + " " + user.Surname, // Replace with the actual user ID
+                    Action = user.Name + " Forgot their Password",
+                    Timestamp = DateTime.Now,
+                    Amount = 0,
+                    Quantity = 0
+                };
+                await _appDbContext.AuditTrails.AddAsync(auditTrail);
+
                 return Ok("Message sent");
             }
 
@@ -768,6 +791,9 @@ namespace BMWIgnition_API.Controllers
             var httppUser = HttpContext.User;
             var userId = httppUser.FindFirst(ClaimTypes.NameIdentifier)?.Value; // retrieve the user id  
             var user = _appDbContext.Challengers.FirstOrDefault(x => x.Id == userId);
+            var password = generateRandomPassword();
+            var callbackUrl = "http://localhost:4200/login";
+
 
 
             //create awards architect
@@ -797,7 +823,7 @@ namespace BMWIgnition_API.Controllers
                     }
                 }
 
-                var result = await _userManager.CreateAsync(rewardArchitect, "Reward.123");
+                var result = await _userManager.CreateAsync(rewardArchitect, password);
                 if (!result.Succeeded)
                 {
                     return BadRequest(new { Message = result.Errors });
@@ -810,28 +836,41 @@ namespace BMWIgnition_API.Controllers
                 message.From.Add(MailboxAddress.Parse(_configuration["Mail:Email"]));
                 message.To.Add(new MailboxAddress("", createUserVM.Email));
                 message.Subject = "Account Created";
-                 
-                var body = @"
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <title>Registration Successful</title>
-            </head>
-            <body style=""margin: 0; padding: 0;"">
-                <div style=""background-image: url('https://img.freepik.com/free-vector/abstract-technological-background_23-2148897676.jpg?w=1380&t=st=1690733149~exp=1690733749~hmac=1ecd2185a81b798a632c342b2ddffbdad3cae190f5fa32e40215b010c4f678e3'); background-size: cover; background-position: center; width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; font-family: Arial, sans-serif;"">
-                    <div style=""background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; max-width: 500px; text-align: center;"">
-                        <h1 style=""color: #333;"">Registration Successful!</h1>
-                        <p style=""color: #333; font-size: 18px;"">Dear [Name],</p>
-                        <p style=""color: #333; font-size: 18px;"">Thank you for registering with us. Your account has been created successfully.</p>
-                        <p style=""color: #333; font-size: 18px;"">You can now log in and start exploring our platform.</p>
-                        <p style=""color: #333; font-size: 18px;"">If you have any questions or need assistance, please don't hesitate to contact our support team.</p>
-                        <p style=""color: #333; font-size: 18px;"">Best regards,</p>
-                        <p style=""color: #333; font-size: 18px;"">The [Your Company] Team</p>
-                    </div>
-                </div>
-            </body>
+
+                var body = @$"
+                       <!DOCTYPE html>
+                <html>
+                <head>
+                  <title>Forgot Password</title>
+                </head>
+                <body>
+                  <div style='font-family: Arial, sans-serif; line-height: 1.6; color: #000000; max-width: 700px; margin: 0 auto; padding: 20px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);'>
+                    <div style='text-align: center; font-size: 24px; margin-bottom: 30px;'><b>Welcome to Ignition!</b></div>
+                    <p>Good day <u>{createUserVM.Name} {createUserVM.Surname}</u>!</p>
+                    <p>Thank you for agreeing to be apart of the BMW It Hub's employee rewards system.
+                        <br>
+                     As a Line Manager, you have been made a Awards Architect!</p>
+                    <p style=""color: #333;"">You can now log in and start exploring our platform. 
+                        <br>
+                        Here are your Log in credentials:
+                        <br>
+                        <br>
+                        <b>Email:</b> {createUserVM.Email}
+                        <br>
+                        <b>Password:</b> {password}
+                    </p>
+
+                    <p>
+                      <a href='{callbackUrl}' target='_blank' style='display: block; text-align: center; background-color: rgb(60, 60, 128); color: #fff; text-decoration: none; font-weight: bold; padding: 12px 20px; border-radius: 5px;'>Click here to sign in and get started</a>
+                    </p>
+                    <p>If you did not make this request or made it by mistake, please ignore this email. Your password will remain the same.</p>
+                    <div style='text-align: center; margin-top: 30px; color: #888;'>Thank you,<br> Codexa Team </div>
+                  </div>
+                  <img style='display: block; margin:auto;max-width: 700px; color: #fff; text-decoration: none; font-weight: bold; padding: 12px 20px; border-radius: 5px;' src =""https://media.licdn.com/dms/image/C4D16AQHFV7iMoz5Uwg/profile-displaybackgroundimage-shrink_200_800/0/1632073639842?e=2147483647&v=beta&t=VLa8lJBfDrirR8tw_CV1RnSkFZsdnu-G3wqxso2WKsM"">
+
+                </body>
                 </html>
-                ";
+                            ";
                 var bodyBuilder = new BodyBuilder();
                 bodyBuilder.TextBody = body;
                 message.Body = new TextPart(TextFormat.Html) { Text = body };
@@ -879,7 +918,7 @@ namespace BMWIgnition_API.Controllers
                     }
                 }
 
-                var result = await _userManager.CreateAsync(superArchitect, "Reward.123");
+                var result = await _userManager.CreateAsync(superArchitect, password);
                 if (!result.Succeeded)
                 {
                     return BadRequest(result.Errors);
@@ -894,27 +933,40 @@ namespace BMWIgnition_API.Controllers
                 message.To.Add(new MailboxAddress("", createUserVM.Email));
                 message.Subject = "Account Created";
 
-                var body = @"
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <title>Registration Successful</title>
-            </head>
-            <body style=""margin: 0; padding: 0;"">
-                <div style=""background-image: url('https://img.freepik.com/free-vector/abstract-technological-background_23-2148897676.jpg?w=1380&t=st=1690733149~exp=1690733749~hmac=1ecd2185a81b798a632c342b2ddffbdad3cae190f5fa32e40215b010c4f678e3'); background-size: cover; background-position: center; width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; font-family: Arial, sans-serif;"">
-                    <div style=""background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; max-width: 500px; text-align: center;"">
-                        <h1 style=""color: #333;"">Registration Successful!</h1>
-                        <p style=""color: #333; font-size: 18px;"">Dear [Name],</p>
-                        <p style=""color: #333; font-size: 18px;"">Thank you for registering with us. Your account has been created successfully.</p>
-                        <p style=""color: #333; font-size: 18px;"">You can now log in and start exploring our platform.</p>
-                        <p style=""color: #333; font-size: 18px;"">If you have any questions or need assistance, please don't hesitate to contact our support team.</p>
-                        <p style=""color: #333; font-size: 18px;"">Best regards,</p>
-                        <p style=""color: #333; font-size: 18px;"">The [Your Company] Team</p>
-                    </div>
-                </div>
-            </body>
+                var body = @$"
+                       <!DOCTYPE html>
+                <html>
+                <head>
+                  <title>Forgot Password</title>
+                </head>
+                <body>
+                  <div style='font-family: Arial, sans-serif; line-height: 1.6; color: #000000; max-width: 700px; margin: 0 auto; padding: 20px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);'>
+                    <div style='text-align: center; font-size: 24px; margin-bottom: 30px;'><b>Welcome to Ignition!</b></div>
+                    <p>Good day <u>{createUserVM.Name} {createUserVM.Surname}</u>!</p>
+                    <p>Thank you for agreeing to be apart of the BMW It Hub's employee rewards system.
+                        <br>
+                     As a General Manager, you have been made a Super Architect!</p>
+                    <p style=""color: #333;"">You can now log in and start exploring our platform. 
+                        <br>
+                        Here are your Log in credentials:
+                        <br>
+                        <br>
+                        <b>Email:</b> {createUserVM.Email}
+                        <br>
+                        <b>Password:</b> {password}
+                    </p>
+
+                    <p>
+                      <a href='{callbackUrl}' target='_blank' style='display: block; text-align: center; background-color: rgb(60, 60, 128); color: #fff; text-decoration: none; font-weight: bold; padding: 12px 20px; border-radius: 5px;'>Click here to sign in and get started</a>
+                    </p>
+                    <p>If you did not make this request or made it by mistake, please ignore this email. Your password will remain the same.</p>
+                    <div style='text-align: center; margin-top: 30px; color: #888;'>Thank you,<br> Codexa Team </div>
+                  </div>
+                  <img style='display: block; margin:auto;max-width: 700px; color: #fff; text-decoration: none; font-weight: bold; padding: 12px 20px; border-radius: 5px;' src =""https://media.licdn.com/dms/image/C4D16AQHFV7iMoz5Uwg/profile-displaybackgroundimage-shrink_200_800/0/1632073639842?e=2147483647&v=beta&t=VLa8lJBfDrirR8tw_CV1RnSkFZsdnu-G3wqxso2WKsM"">
+
+                </body>
                 </html>
-                ";
+                            ";
                 var bodyBuilder = new BodyBuilder();
                 bodyBuilder.TextBody = body;
                 message.Body = new TextPart(TextFormat.Html) { Text = body };
@@ -971,27 +1023,41 @@ namespace BMWIgnition_API.Controllers
                 message.To.Add(new MailboxAddress("", createUserVM.Email));
                 message.Subject = "Account Created";
 
-                var body = @"
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <title>Registration Successful</title>
-            </head>
-            <body style=""margin: 0; padding: 0;"">
-                <div style=""background-image: url('https://img.freepik.com/free-vector/abstract-technological-background_23-2148897676.jpg?w=1380&t=st=1690733149~exp=1690733749~hmac=1ecd2185a81b798a632c342b2ddffbdad3cae190f5fa32e40215b010c4f678e3'); background-size: cover; background-position: center; width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; font-family: Arial, sans-serif;"">
-                    <div style=""background-color: rgba(255, 255, 255, 0.8); padding: 20px; border-radius: 10px; max-width: 500px; text-align: center;"">
-                        <h1 style=""color: #333;"">Registration Successful!</h1>
-                        <p style=""color: #333; font-size: 18px;"">Dear [Name],</p>
-                        <p style=""color: #333; font-size: 18px;"">Thank you for registering with us. Your account has been created successfully.</p>
-                        <p style=""color: #333; font-size: 18px;"">You can now log in and start exploring our platform.</p>
-                        <p style=""color: #333; font-size: 18px;"">If you have any questions or need assistance, please don't hesitate to contact our support team.</p>
-                        <p style=""color: #333; font-size: 18px;"">Best regards,</p>
-                        <p style=""color: #333; font-size: 18px;"">The [Your Company] Team</p>
-                    </div>
-                </div>
-            </body>
+
+                var body = @$"
+                       <!DOCTYPE html>
+                <html>
+                <head>
+                  <title>Forgot Password</title>
+                </head>
+                <body>
+                  <div style='font-family: Arial, sans-serif; line-height: 1.6; color: #000000; max-width: 700px; margin: 0 auto; padding: 20px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);'>
+                    <div style='text-align: center; font-size: 24px; margin-bottom: 30px;'><b>Welcome to Ignition!</b></div>
+                    <p>Good day <u>{createUserVM.Name} {createUserVM.Surname}</u>!</p>
+                    <p>Thank you for agreeing to be apart of the BMW It Hub's employee rewards system.
+                        <br>
+                     You have been made a System administrator!</p>
+                    <p style=""color: #333;"">You can now log in and start exploring our platform. 
+                        <br>
+                        Here are your Log in credentials:
+                        <br>
+                        <br>
+                        <b>Email:</b> {createUserVM.Email}
+                        <br>
+                        <b>Password:</b> {password}
+                    </p>
+
+                    <p>
+                      <a href='{callbackUrl}' target='_blank' style='display: block; text-align: center; background-color: rgb(60, 60, 128); color: #fff; text-decoration: none; font-weight: bold; padding: 12px 20px; border-radius: 5px;'>Click here to sign in and get started</a>
+                    </p>
+                    <p>If you did not make this request or made it by mistake, please ignore this email. Your password will remain the same.</p>
+                    <div style='text-align: center; margin-top: 30px; color: #888;'>Thank you,<br> Codexa Team </div>
+                  </div>
+                  <img style='display: block; margin:auto;max-width: 700px; color: #fff; text-decoration: none; font-weight: bold; padding: 12px 20px; border-radius: 5px;' src =""https://media.licdn.com/dms/image/C4D16AQHFV7iMoz5Uwg/profile-displaybackgroundimage-shrink_200_800/0/1632073639842?e=2147483647&v=beta&t=VLa8lJBfDrirR8tw_CV1RnSkFZsdnu-G3wqxso2WKsM"">
+
+                </body>
                 </html>
-                ";
+                            ";
                 var bodyBuilder = new BodyBuilder();
                 bodyBuilder.TextBody = body;
                 message.Body = new TextPart(TextFormat.Html) { Text = body };
@@ -1541,6 +1607,38 @@ namespace BMWIgnition_API.Controllers
             }
 
         }
+
+        private string generateRandomPassword()
+        {
+            var random = new Random();
+            var password = new StringBuilder(8); // Initialize the StringBuilder with a capacity of 8 characters.
+
+            // Generate at least one uppercase letter
+            password.Append((char)random.Next(65, 91)); // ASCII values for uppercase letters (A-Z)
+
+            // Generate at least one lowercase letter
+            password.Append((char)random.Next(97, 123)); // ASCII values for lowercase letters (a-z)
+
+            // Generate at least one digit
+            password.Append((char)random.Next(48, 58)); // ASCII values for digits (0-9)
+
+            // Generate at least one special character
+            string specialCharacters = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+            password.Append(specialCharacters[random.Next(specialCharacters.Length)]);
+
+            // Generate remaining characters
+            for (int i = 4; i < 8; i++)
+            {
+                password.Append((char)random.Next(33, 126)); // ASCII values for printable characters (from '!' to '~')
+            }
+
+            // Shuffle the characters to randomize the order
+            string shuffledPassword = new string(password.ToString().ToCharArray().OrderBy(x => random.Next()).ToArray());
+
+            return shuffledPassword;
+        }
+
+
 
     }
 }

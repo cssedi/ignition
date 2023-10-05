@@ -14,6 +14,9 @@ using System.Security.Claims;
 using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
 using Challenge = BMWIgnition_API.Model.Challenge;
+using MimeKit.Text;
+using MimeKit;
+using MailKit.Net.Smtp;
 
 namespace BMWIgnition_API.Controllers
 {
@@ -23,11 +26,13 @@ namespace BMWIgnition_API.Controllers
   {
         private readonly AppDbContext _context;
         private readonly UserManager<Challenger> _userManager;
+        private readonly IConfiguration _configuration;
 
-        public ChallengeController(AppDbContext context, UserManager<Challenger> userManager )
+        public ChallengeController(AppDbContext context, UserManager<Challenger> userManager, IConfiguration configuration)
         {
-          _context = context;
+            _context = context;
             _userManager = userManager;
+            _configuration = configuration;
         }
 
         // GET: /Challenge
@@ -454,6 +459,8 @@ namespace BMWIgnition_API.Controllers
                     newChallenge.IsArchived = true;
                 }
             }
+
+            
             _context.Challenges.Add(newChallenge);
             await _context.SaveChangesAsync();
 
@@ -481,6 +488,80 @@ namespace BMWIgnition_API.Controllers
 
             _context.AuditTrails.Add(auditTrail);
             _context.SaveChanges();
+
+            //notify all challengers of new challenge
+            var departmentUsers = _context.Challengers.Where(d=> d.DepartmentId == departmentChallenge.DepartmentId).ToList();
+            var callbackUrl = "http://localhost:4200/user-challenges";
+
+
+            foreach (var challenger in departmentUsers)
+            {
+
+                var message = new MimeMessage();
+                message.From.Add(MailboxAddress.Parse(_configuration["Mail:Email"]));
+                message.To.Add(new MailboxAddress("", challenger.Email));
+                message.Subject = "New Challenge";
+
+
+                var body = @$"<!DOCTYPE html>
+                                <html>
+
+                                <head>
+                                  <title>New Challenge</title>
+                                </head>
+
+                                <body>
+                                  <div >
+                                      <div
+                                        style='font-family: Arial, sans-serif; line-height: 1.6; color: #000000; max-width: 700px; margin: 0 auto; padding: 20px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);'>
+                                        <div style='text-align: center; font-size: 24px; margin-bottom: 30px;'><b>New Challenge!</b></div>
+                                        <p>Hey <u>{challenger.Name}</u></p>
+                                        <p>Your architect has posted a <b>new </b>challenge for you!</p>
+                                      <div style=""flex-direction: row;"">
+                                        <div>
+          
+                                          <p>The challenge details are as follows:</p>
+                                          <p><b>Challenge Title:</b> {newChallenge.Name}</p>
+                                          <p><b>Description:</b> {newChallenge.Description}</p>
+                                          <p><b>End Date:</b> {newChallenge.endDate.ToShortDateString()}</p>
+                                          <p>Participate in this exciting challenge to win HUbcoins and wonderful challenges</p>
+                                        </div>
+                                        <div style=""width: 100%; text-align: center;"">
+                                          <img src=""{newChallenge.Image}"">
+                                        </div>
+                                      </div>
+
+
+                                        <p>
+                                          <a href='{callbackUrl}' target='_blank'
+                                            style='display: block; text-align: center; background-color: rgb(60, 60, 128); color: #fff; text-decoration: none; font-weight: bold; padding: 12px 20px; border-radius: 5px;'>Click here to view the challenge details</a>
+                                        </p>
+                                        <p>If you have any questions or need further assistance, feel free to reach out to us.</p>
+                                        <p>Good luck, and may the best challenger win!</p>
+                                        <div style='text-align: center; margin-top: 30px; color: #888;'>Thank you for being a part of Ignition,<br> The Ignition Team</div>
+                                      </div>
+                                  </div>
+
+
+                                  <img style='display: block; margin:auto;max-width: 700px; color: #fff; text-decoration: none; font-weight: bold; padding: 12px 20px; border-radius: 5px;'
+                                    src=""https://media.licdn.com/dms/image/C4D16AQHFV7iMoz5Uwg/profile-displaybackgroundimage-shrink_200_800/0/1632073639842?e=2147483647&v=beta&t=VLa8lJBfDrirR8tw_CV1RnSkFZsdnu-G3wqxso2WKsM"">
+
+                                </body>
+
+                                </html>";
+
+                var bodyBuilder = new BodyBuilder();
+                bodyBuilder.TextBody = body;
+                message.Body = new TextPart(TextFormat.Html) { Text = body };
+
+                using (var client = new SmtpClient())
+                {
+                    client.Connect("smtp.gmail.com", 587, false);
+                    client.Authenticate(_configuration["Mail:Email"], _configuration["Mail:Password"]);
+                    client.Send(message);
+                    client.Disconnect(true);
+                }
+            }
 
             await _context.SaveChangesAsync();
             return Ok(newChallenge);
