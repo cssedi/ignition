@@ -101,7 +101,7 @@
 
 <!-- So this will be the universally found help button -->
 <!-- Actually, need to put ngIf in here so it only shows when someone is actually logged in. -->
-<div class="mr-10 z-0 fixed right-0 bottom-7" *ngIf="admin == true || reward == true">
+<div class="mr-10 z-0 fixed right-0 bottom-7">
    <button (click)="toggleHelpPopup()" *ngIf="!isHelpPopupVisible"> 
       <svg class="w-12 h-12 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
          fill="none" viewBox="0 0 20 20">

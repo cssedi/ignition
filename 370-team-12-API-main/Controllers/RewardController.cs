@@ -160,7 +160,7 @@ namespace BMWIgnition_API.Controllers
             return Ok(new { Message = prize.Name + "has been deleted" });
         }
 
-
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "ADMIN")]
         [HttpPut("UpdatePrize/{id}")]
         public async Task<IActionResult> UpdatePrize(int id,  PrizeVM updatedPrize)
         {

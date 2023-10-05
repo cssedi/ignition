@@ -78,14 +78,14 @@ export class ChallengeReportsComponent implements AfterViewInit {
 
           // Then get the total number of completed challenge instances for the entire dep
           let totalCompletedChallenges = usersInDepartment.reduce((total, user) => {
-            let completedChallenges = user.challengeInstances.filter((ci: { challengeInstanceStatusId: number; }) => ci.challengeInstanceStatusId === 1).length;
+            let completedChallenges = user.challengeInstances.filter((ci: { challengeInstanceStatusId: number; }) => ci.challengeInstanceStatusId === 5).length;
             return total + completedChallenges;
           }, 0);
 
           // Then get the number of completed challenges for each user in that dep
           // I think this one is not neccessary, but extra data in tuple could prove useful
           let usersWithCompletedChallenges = usersInDepartment.map(user => {
-            let completedChallenges = user.challengeInstances.filter((ci: { challengeInstanceStatusId: number; }) => ci.challengeInstanceStatusId === 1).length;
+            let completedChallenges = user.challengeInstances.filter((ci: { challengeInstanceStatusId: number; }) => ci.challengeInstanceStatusId === 5).length;
             return { user, completedChallenges };
           });
 
@@ -97,10 +97,12 @@ export class ChallengeReportsComponent implements AfterViewInit {
 
           // NBNBNB: Adding mock completion rates here bc of infinite completion rates.
           // REMOVE THIS ONCE ENDPOINT IS FIXED
-          this.combinedArray.forEach((dep, pos) => {
-            this.combinedArray[pos][3] = 0.75
-          })
+          // this.combinedArray.forEach((dep, pos) => {
+          //   this.combinedArray[pos][3] = 0.75
+          // })
           // *************************************************************************//
+
+          console.log(this.combinedArray)
 
 
         });

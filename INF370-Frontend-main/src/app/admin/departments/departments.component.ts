@@ -52,75 +52,77 @@ export class DepartmentsComponent {
     name: '',
     functionId: 0,
     awardsArchitectId: '',
-    checked: null
+    checked: null,
+    awardsArchitect: undefined
   }
   currentDep: any
 
   constructor(private adminService: AdminService, private fb: FormBuilder, private router: Router, private toast: NgToastService) { }
+//Reports begin
+fetchTableData() {
+   
+  this.adminService.getAllDepartments().subscribe(data => {
+    this.departments = data
+    console.log('all depts', this.departments)
+  })
+  this.downloadPDF();
+}
 
-  //Reports begin
-  fetchTableData() {
+downloadPDF() {
+  const doc = new jsPDF();
+  let yPos = 20;
 
-    this.adminService.getAllDepartments().subscribe(data => {
-      this.departments = data
-      console.log('all depts', this.departments)
-    })
-    this.downloadPDF();
+  // Load the logo image
+ const logoUrl = 'https://media.licdn.com/dms/image/C4E0BAQG8lNSut2H2_g/company-logo_200_200/0/1648744583668?e=2147483647&v=beta&t=CT7YiTeKyZNhn6D7T26KNqIWwWV8X48u-aF37Qbb-xk'; // Replace with your actual logo URL
+
+ // Load the logo image asynchronously
+ const img = new Image();
+ img.src = logoUrl;// Set up an event listener to ensure the image is loaded before rendering the PDF
+ 
+   // Draw the logo image on the PDF
+   doc.addImage(img, 'PNG', 10, 5, 30, 20)
+
+
+
+  //  heading with date
+  const today = new Date();
+  const formattedDate = today.toDateString();
+  doc.setFontSize(18);
+  doc.text('Department Report- ' + formattedDate, 50, 15);
+  yPos += 10;
+
+  // Table styles
+  const tableHeaders = ['departmentCode', 'name'];
+  const tableHeader = ['Department Code', 'Name'];
+  const colWidths = [50, 20, 100]; // Adjust colWidths as needed
+  doc.setFontSize(12);
+
+  //  headers
+  doc.setFillColor(51, 122, 183); // Header background color
+  doc.setTextColor(255); // Header text color
+  doc.setFont('bold');
+  doc.rect(10, yPos, colWidths.reduce((a, b) => a + b), 10, 'F');
+  let xPos = 10;
+  for (let i = 0; i < tableHeader.length; i++) {
+    doc.text(tableHeader[i], xPos + 2, yPos + 8);
+    xPos += colWidths[i];
   }
+  yPos += 10;
 
-  downloadPDF() {
-    const doc = new jsPDF();
-    let yPos = 20;
-
-    // Load the logo image
-    const logoUrl = 'https://media.licdn.com/dms/image/C4E0BAQG8lNSut2H2_g/company-logo_200_200/0/1648744583668?e=2147483647&v=beta&t=CT7YiTeKyZNhn6D7T26KNqIWwWV8X48u-aF37Qbb-xk'; // Replace with your actual logo URL
-
-    // Load the logo image asynchronously
-    const img = new Image();
-    img.src = logoUrl;// Set up an event listener to ensure the image is loaded before rendering the PDF
-
-    // Draw the logo image on the PDF
-    doc.addImage(img, 'PNG', 10, 5, 30, 20)
-    //  heading with date
-    const today = new Date();
-    const formattedDate = today.toDateString();
-    doc.setFontSize(18);
-    doc.text('Department Report- ' + formattedDate, 50, 15);
+  // Draw table data
+  doc.setFont('normal');
+  this.departments.forEach(course => {
+    let xDataPos = 10;
+    for (let i = 0; i < tableHeaders.length; i++) {
+      doc.setTextColor(0); // Set text color to black
+      doc.text(course[tableHeaders[i]].toString(), xDataPos + 2, yPos + 8);
+      xDataPos += colWidths[i];
+    }
     yPos += 10;
+  });
 
-    // Table styles
-    const tableHeaders = ['departmentCode', 'name'];
-    const tableHeader = ['Department Code', 'Name'];
-    const colWidths = [50, 20, 100]; // Adjust colWidths as needed
-    doc.setFontSize(12);
-
-    //  headers
-    doc.setFillColor(51, 122, 183); // Header background color
-    doc.setTextColor(255); // Header text color
-    doc.setFont('bold');
-    doc.rect(10, yPos, colWidths.reduce((a, b) => a + b), 10, 'F');
-    let xPos = 10;
-    for (let i = 0; i < tableHeader.length; i++) {
-      doc.text(tableHeader[i], xPos + 2, yPos + 8);
-      xPos += colWidths[i];
-    yPos += 10;
-
-    // Draw table data
-    doc.setFont('normal');
-    this.departments.forEach(course => {
-      let xDataPos = 10;
-      for (let i = 0; i < tableHeaders.length; i++) {
-        doc.setTextColor(0); // Set text color to black
-        doc.text(course[tableHeaders[i]].toString(), xDataPos + 2, yPos + 8);
-        xDataPos += colWidths[i];
-      }
-      yPos += 10;
-    });
-
-    doc.save('Department_Report.pdf');
-  }
-  }
-  //reports end
+  doc.save('Department_Report.pdf');
+}
 
   //export begin 
   exportDataToJson(data: any, fileName: string): void {
@@ -132,7 +134,7 @@ export class DepartmentsComponent {
   // Example usage
   exportButtonClick(): void {
     const dataToExport = this.DepartmentArray;
-    this.exportDataToJson(dataToExport, 'Exported Fuctions');
+    this.exportDataToJson(dataToExport, 'Exported Departments');
   }
 
   ngOnInit(): void {

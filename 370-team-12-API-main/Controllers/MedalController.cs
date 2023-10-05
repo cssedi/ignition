@@ -147,10 +147,10 @@ namespace BMWIgnition_API.Controllers
             if (medal == null)
                 return NotFound();
             //deletion rules
-            var challenges = await _dbContext.Challenges.Where(x => x.MedalId == medal.MedalId).Where(x => x.IsArchived == true).ToListAsync();
+            var challenges = await _dbContext.Challenges.Where(x => x.MedalId == medal.MedalId).Where(x => x.IsArchived == false).ToListAsync();
             if (challenges.Count() > 0)
             {
-                return BadRequest(new { message = "Cannot delete Challenge Type with active challenges!" });
+                return BadRequest(new { message = "Cannot delete Medal with active challenges!" });
             }
             _dbContext.Medals.Remove(medal);
             await _dbContext.SaveChangesAsync();

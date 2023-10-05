@@ -40,7 +40,7 @@ namespace BMWIgnition_API.Controllers
         [Route("GetAllDepartment")]
         public async Task<IActionResult> GetAllDepartments()
         {
-            var departments = await _appDbContext.Departments.Include(d => d.Challenges).ToListAsync();
+            var departments = await _appDbContext.Departments.Include(d => d.Challenges).Include(a=>a.AwardsArchitect).ToListAsync();
             if(departments.Count == 0)
             {
                 return NotFound(new { Message = "No departments found" });

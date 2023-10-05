@@ -38,7 +38,8 @@ export class ReportsComponent implements OnInit {
     name: '',
     functionId: 0,
     awardsArchitectId: '',
-    checked: null
+    checked: null,
+    awardsArchitect: undefined
   }
   departmentCodeArray: string[] = []
   constructor(private reportsservice: ReportService, private toast: NgToastService, private adminservice: AdminService, private PrizeService: ShopService, private fb: FormBuilder, private socialFeedService: SocialFeedService) {

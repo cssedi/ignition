@@ -837,6 +837,7 @@ namespace BMWIgnition_API.Controllers
                 message.To.Add(new MailboxAddress("", createUserVM.Email));
                 message.Subject = "Account Created";
 
+
                 var body = @$"
                        <!DOCTYPE html>
                 <html>
@@ -847,9 +848,9 @@ namespace BMWIgnition_API.Controllers
                   <div style='font-family: Arial, sans-serif; line-height: 1.6; color: #000000; max-width: 700px; margin: 0 auto; padding: 20px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);'>
                     <div style='text-align: center; font-size: 24px; margin-bottom: 30px;'><b>Welcome to Ignition!</b></div>
                     <p>Good day <u>{createUserVM.Name} {createUserVM.Surname}</u>!</p>
-                    <p>Thank you for agreeing to be apart of the BMW It Hub's employee rewards system.
+                    <p>Thank you for agreeing to be apart of the BMW IT Hub's employee rewards system.
                         <br>
-                     As a Line Manager, you have been made a Awards Architect!</p>
+                     As a Line Manager, you have been made an Awards Architect!</p>
                     <p style=""color: #333;"">You can now log in and start exploring our platform. 
                         <br>
                         Here are your Log in credentials:
