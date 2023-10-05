@@ -268,9 +268,9 @@
 
 
         <div class="relative mt-8 flex items-center gap-x-4 ">
-          <img
-            src="{{user.profilePicture}}"
-            alt="" class="h-10 w-10 rounded-full bg-blue-50">
+          <!-- placeholder profile picture if profile picture not given -->
+          <img *ngIf="user.profile == null" class="w-8 h-8 rounded-full" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="user photo">
+          <img *ngIf="user.profile != null" class="w-8 h-8 rounded-full" src="{{user.profile}}" alt="user photo">
           <div class="text-sm leading-6">
             <p class="font-semibold text-gray-900">
               <a href="#">
@@ -331,7 +331,9 @@
 
           <div class="flex">
             <div class="m-2 w-10 py-1">
-                <img class="inline-block h-10 w-10 rounded-full" src="{{user.profilePicture}}" alt="" />
+            <!-- placeholder profile picture if profile picture not given -->
+            <img *ngIf="user.profile == null" class=" rounded-full" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="user photo">
+            <img *ngIf="user.profile != null" class=" rounded-full" src="{{user.profile}}" alt="user photo">
             </div>
             <div class="flex-1 px-2 pt-2 mt-2 w-44">
               <textarea id="comment" rows="2" formControlName="text"
@@ -369,7 +371,10 @@
               <!-- Profile Pic -->
               <div  [routerLink]="['/other-profile', post.challenger.id]" class="flex items-center">
                 <div class="relative  flex items-center gap-x-4">
-                  <img src="{{post.challenger.profilePicture}}" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+                  <img *ngIf="post.challenger.profilePicture != null" src="{{post.challenger.profilePicture}}" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+                  <!-- placeholder profile picture if profile picture not given -->
+                  <img *ngIf="post.challenger.profilePicture == null" class="w-10 h-10 rounded-full" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="user photo">
+
                   <div class="text-sm leading-6">                  
                     <p class="text-md text-gray-900">
                       
@@ -409,7 +414,7 @@
                  
                   <li>
                     <button (click)="deletePost(post.postID)"
-                      class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</button>
+                      class="block px-4 py-2 w-full hover:bg-blue-100 dark:hover:bg-blue-600 dark:hover:text-white">Delete</button>
                   </li>
                 </ul>
               </div>
@@ -454,11 +459,18 @@
                 <article class="p-2 ml-12 mb-5 bg-gray-50 border rounded-lg relative" *ngFor="let comment of comments">
                   <footer class="flex items-center justify-between mb-2">
                     <div class="flex items-center">
-                      <p class="inline-flex items-center mr-3 text-sm font-semibold text-gray-900 dark:text-white"><img
+                      <p *ngIf="comment.challenger.profilePicture != null" class="inline-flex items-center mr-3 text-sm font-semibold text-gray-900 dark:text-white">
+                        <img 
                           class="w-6 h-6 mr-2 rounded-full"
                           src="{{comment.challenger.profilePicture}}" alt="Joseph avatar">{{comment.challenger.name}} {{comment.challenger.surname}}</p>
-                      <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
-                          title="February 8th, 2022"> </time></p>
+                      <p *ngIf="comment.challenger.profilePicture == null"class="inline-flex items-center mr-3 text-sm font-semibold text-gray-900 dark:text-white">
+                        <img 
+                          class="w-6 h-6 mr-2 rounded-full"
+                          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Joseph avatar">{{comment.challenger.name}} {{comment.challenger.surname}}</p>
+                          <br>
+                          <div class="text-gray-500 text-xs">
+                            @{{comment.challenger.userName}}
+                          </div>
                     </div>
                     <button id="dropdownComment4Button"  *ngIf="comment.challenger.userName == user.userName" 
                       class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:ring-gray-600"
@@ -479,7 +491,7 @@
                        
                         <li>
                           <a (click)="deleteComment(comment.commentID)"
-                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
+                            class="block px-4 py-2 w-full hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Delete</a>
                         </li>
                       </ul>
                     </div>
