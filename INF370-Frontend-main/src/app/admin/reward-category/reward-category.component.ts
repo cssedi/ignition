@@ -28,7 +28,7 @@ export class RewardCategoryComponent {
   //NOTE: Temporarily using prize types from the DB instead of categories.    
 
   ngOnInit(): void {
-    this.adminService.getAllRewardCategories().subscribe({
+    this.adminService.getAllPrizeTypes().subscribe({
       next: (value) => {
         this.prizeTypes = value
         console.log('prize types', this.prizeTypes)
@@ -94,7 +94,7 @@ export class RewardCategoryComponent {
   }
 
   viewDelete(id: number) {
-    this.adminService.getRewardCategoryById(id).subscribe({
+    this.adminService.getRewardTypeById(id).subscribe({
       next: (reponse) => {
         this.PrizeType.name = reponse.name
         this.PrizeType.id = reponse.prizeCategoryID
@@ -131,7 +131,7 @@ export class RewardCategoryComponent {
           this.toast.success({detail:"SUCCESS", summary:"Reward category created successfully", duration:5000})
         },
         complete: () => {
-          this.adminService.getAllRewardCategories().subscribe({
+          this.adminService.getAllPrizeTypes().subscribe({
             next: (value) => {
               this.prizeTypes = value
               console.log('prize types', this.prizeTypes)
@@ -168,7 +168,7 @@ export class RewardCategoryComponent {
 
   //This needs to retrieve prize types instead
   getAllRewardCategories() {
-    this.adminService.getAllRewardCategories().subscribe({
+    this.adminService.getAllPrizeTypes().subscribe({
       next: (response) => {
         console.log('getAllRewardCategories', response)
         this.prizeTypes = response

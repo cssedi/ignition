@@ -434,7 +434,7 @@ namespace BMWIgnition_API.Controllers
 
             _appDbContext.AuditTrails.Add(auditTrail);
             _appDbContext.SaveChanges();
-            AutoArchiveChallenge();
+            //AutoArchiveChallenge();
 
             return Ok(new { token = GenerateToken(challenger) });
         }
@@ -517,7 +517,7 @@ namespace BMWIgnition_API.Controllers
                 return BadRequest(results);
             };
             //archive challenge if required
-            AutoArchiveChallenge();
+            //AutoArchiveChallenge();
 
             return BadRequest("some properties are missing");
         }
@@ -564,7 +564,7 @@ namespace BMWIgnition_API.Controllers
 
             string tokenString = new JwtSecurityTokenHandler().WriteToken(token);
             //archive challenge if required
-            AutoArchiveChallenge();
+            //AutoArchiveChallenge();
 
             return Ok(new { token = tokenString });
 
@@ -610,7 +610,7 @@ namespace BMWIgnition_API.Controllers
 
             string tokenString = new JwtSecurityTokenHandler().WriteToken(token);
             //archive challenge if required
-            AutoArchiveChallenge();
+            //AutoArchiveChallenge();
             return Ok(new { token  = tokenString });
           
         }
@@ -657,7 +657,7 @@ namespace BMWIgnition_API.Controllers
 
             string tokenString = new JwtSecurityTokenHandler().WriteToken(token);
             //archive challenge if required
-            AutoArchiveChallenge();
+           // AutoArchiveChallenge();
 
             return Ok(new { token = tokenString, user = user });
 
@@ -1587,27 +1587,27 @@ namespace BMWIgnition_API.Controllers
 
         }
 
-        [HttpGet("AutoArchiveChallenge")]
-        public async void AutoArchiveChallenge()
-        {
-            var challenges = _appDbContext.Challenges.ToListAsync();
-            foreach (var challenge in challenges.Result)
-            {
-                //if start date is ahead of current date challenge must be archived
-                if (challenge.endDate < DateTime.Now)
-                {
-                    challenge.IsArchived = true;
-                    await _appDbContext.SaveChangesAsync();
-                }
-                //if start date is ahead of current date challenge must be archived
-                else if (challenge.startDate > DateTime.Now)
-                {
-                    challenge.IsArchived = true;
-                    await _appDbContext.SaveChangesAsync();
-                }
-            }
+        //[HttpGet("AutoArchiveChallenge")]
+        //public async void AutoArchiveChallenge()
+        //{
+        //    var challenges = _appDbContext.Challenges.ToListAsync();
+        //    foreach (var challenge in challenges.Result)
+        //    {
+        //        //if start date is ahead of current date challenge must be archived
+        //        if (challenge.endDate < DateTime.Now)
+        //        {
+        //            challenge.IsArchived = true;
+        //            await _appDbContext.SaveChangesAsync();
+        //        }
+        //        //if start date is ahead of current date challenge must be archived
+        //        else if (challenge.startDate > DateTime.Now)
+        //        {
+        //            challenge.IsArchived = true;
+        //            await _appDbContext.SaveChangesAsync();
+        //        }
+        //    }
 
-        }
+        //}
 
         private string generateRandomPassword()
         {

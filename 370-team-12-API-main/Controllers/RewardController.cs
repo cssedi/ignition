@@ -149,12 +149,6 @@ namespace BMWIgnition_API.Controllers
             {
                 return BadRequest(new { message = "Cannot delete Prize with active challenges!" });
             }
-            //waiting for prizeOrderStatuses to be seeded
-            //var prizeOrders = await _appDbContext.PrizeOrders.Where(x => x.PrizeId == prize.PrizeID).Where(x => x.PrizeOrderStatusId == 1)ToListAsync();
-            //if (challenges.Count() > 0)
-            //{
-            //    return BadRequest(new { message = "Cannot delete Prize with active challenges!" });
-            //}
 
 
             return Ok(new { Message = prize.Name + "has been deleted" });
@@ -187,7 +181,7 @@ namespace BMWIgnition_API.Controllers
                     Action = updatedPrize.Name + " reward updated",
                     Timestamp = DateTime.Now,
                     Amount = updatedPrize.Tokens,
-                    Quantity = 1
+                    Quantity = 0
 
                 };
 
@@ -200,6 +194,49 @@ namespace BMWIgnition_API.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "ADMIN")]
+        [HttpGet("GetRewardTypeById/{id}")]
+        public async Task<IActionResult> GetRewardTypeById(int id)
+        {
+            var prizeType = await _appDbContext.PrizeTypes.FindAsync(id);
+            if (prizeType == null)
+            {
+                return NotFound();
+            }
+            return Ok(prizeType);
+        }
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "ADMIN")]
+        [HttpDelete("DeleteRewardType/{id}")]
+        public async Task<IActionResult> DeleteRewardType(int id)
+        {
+            var prizeType = await _appDbContext.PrizeTypes.FindAsync(id);
+            if (prizeType == null)
+            {
+                return NotFound();
+            }
+            _appDbContext.PrizeTypes.Remove(prizeType);
+            await _appDbContext.SaveChangesAsync();
+
+            var httppUser = HttpContext.User;
+            var userId = httppUser.FindFirst(ClaimTypes.NameIdentifier)?.Value; // retrieve the user id  
+            var user = await _userManager.FindByIdAsync(userId);
+
+            var auditTrail = new AuditTrail
+            {
+                UserId = user.Name + " " + user.Surname,
+                Action = prizeType.Name + " reward type deleted",
+                Timestamp = DateTime.Now,
+                Quantity = 0
+
+            };
+
+            _appDbContext.AuditTrails.Add(auditTrail);
+            _appDbContext.SaveChanges();
+
+            return Ok(new { Message = prizeType.Name + " deleted" });
+
         }
 
     }

@@ -197,7 +197,7 @@ export class AdminService {
   }
 
   getRewardTypeById(id: number) {
-    return this.http.get<any>(this.baseApiURL + "api/Reward/GetRewardType/" + id)
+    return this.http.get<any>(this.baseApiURL + "api/Reward/GetRewardTypeById/" + id, this.httpOptions)
   }
 
   updateRewardType(categoryType: any): Observable<any> {
@@ -205,11 +205,11 @@ export class AdminService {
   }
 
   deleteRewardType(id: number): Observable<any> {
-    return this.http.delete<any>(this.baseApiURL + "api/Reward/PrizeCategory/" + id)
+    return this.http.delete<any>(this.baseApiURL + "api/Reward/DeleteRewardType/" + id, this.httpOptions)
   }
 
   addRewardType(rewardCategory: any): Observable<any> {
-    return this.http.post<any>(this.baseApiURL + "api/PrizeCategory", { prizeCategoryName: rewardCategory.name })
+    return this.http.post<any>(this.baseApiURL + "api/PrizeCategory", { prizeCategoryName: rewardCategory.name }, this.httpOptions)
   }
 
   GetUnAssignedAwardsArchitects(): Observable<UnnassignedArchitectVM[]> {

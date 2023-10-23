@@ -2,6 +2,7 @@ import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { HelpDashService } from '../services/help-dash.service';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -58,7 +59,7 @@ export class HelpPageComponent {
 
   searchTerm!: string;
 
-  constructor(private router: Router, private helpDashService: HelpDashService, private renderer: Renderer2, private el: ElementRef, private route: ActivatedRoute) {
+  constructor(private location: Location, private router: Router, private helpDashService: HelpDashService, private renderer: Renderer2, private el: ElementRef, private route: ActivatedRoute) {
 
   }
   ngOnInit() {
@@ -79,7 +80,9 @@ export class HelpPageComponent {
       }
     });
   }
-
+  goBack() {
+    this.location.back();
+  }
   getHelps() {
     try {
       // Clear this bad boi here
