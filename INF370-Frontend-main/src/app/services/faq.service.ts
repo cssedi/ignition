@@ -23,7 +23,7 @@ export class FaqService {
   }
 
   createFAQ(faq: FAQ): Observable<FAQ> {
-    return this.http.post<FAQ>('https://localhost:7269/CreateFAQ', faq);
+    return this.http.post<FAQ>('https://localhost:7269/api/FAQs/CreateFAQ', faq, this.httpOptions);
   }
 
   updateFAQ(faqId: number, faq: FAQ): Observable<any> {
@@ -33,7 +33,7 @@ export class FaqService {
 
   deleteFAQ
   (faqId: number): Observable<any> {
-    const url = `https://localhost:7269/DeleteFAQ/${faqId}`;
-    return this.http.delete<any>(url);
+    const url = `https://localhost:7269/api/FAQS/DeleteFAQ/${faqId}`;
+    return this.http.delete<any>(url, this.httpOptions);
   }
 }
