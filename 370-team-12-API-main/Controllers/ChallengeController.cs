@@ -536,9 +536,6 @@ namespace BMWIgnition_API.Controllers
                                           <p><b>End Date:</b> {newChallenge.endDate.ToShortDateString()}</p>
                                           <p>Participate in this exciting challenge to win HUbcoins and wonderful challenges</p>
                                         </div>
-                                        <div style=""width: 100%; text-align: center;"">
-                                          <img src=""{newChallenge.Image}"">
-                                        </div>
                                       </div>
 
 
