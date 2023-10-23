@@ -89,7 +89,7 @@ namespace BMWIgnition_API.Controllers
             };
             await _context.AuditTrails.AddAsync(auditTrail);
             await _context.SaveChangesAsync();
-            AutoArchiveChallenge();
+            //AutoArchiveChallenge();
 
             return Ok(archivedChallenges);
         }
@@ -465,13 +465,23 @@ namespace BMWIgnition_API.Controllers
             await _context.SaveChangesAsync();
 
             //get awards architect department
-            var architectDepartent = await _context.Departments.Where(x => x.Id == rewardsArchitectId).FirstAsync();
+            var architectDepartent = _context.Departments.Where(x => x.Id == rewardsArchitectId).FirstOrDefault();
+
+            if (architectDepartent == null)
+            {
+                return BadRequest(new { message = "You have not been assigned a department. Please contact admin for further support" });
+            }
             //create new department challenge object
             var departmentChallenge = new DepartmentChallenge
             {
                 ChallengeID = newChallenge.ChallengeID,
                 DepartmentId = architectDepartent.DepartmentId
             };
+            //department challenge error
+            if (departmentChallenge.ChallengeID == 0)
+            {
+                return BadRequest(new { message = "Unexpected error creating challenge" });
+            }
 
             await _context.DepartmentChallenges.AddAsync(departmentChallenge);
 
@@ -829,27 +839,27 @@ namespace BMWIgnition_API.Controllers
                 .ToListAsync();
             return Ok(challengeList);
         }
-        [HttpGet("AutoArchiveChallenge")]
-        public async void AutoArchiveChallenge()
-        {
-            var challenges = _context.Challenges.ToListAsync();
-            foreach (var challenge in challenges.Result)
-            {
-                //if start date is ahead of current date challenge must be archived
-                if (challenge.endDate < DateTime.Now)
-                {
-                    challenge.IsArchived = true;
-                    await _context.SaveChangesAsync();
-                }
-                //if start date is ahead of current date challenge must be archived
-                else if(challenge.startDate > DateTime.Now)
-                {
-                    challenge.IsArchived = true;
-                    await _context.SaveChangesAsync();
-                }
-            }
+        //[HttpGet("AutoArchiveChallenge")]
+        //public async void AutoArchiveChallenge()
+        //{
+        //    var challenges = _context.Challenges.ToListAsync();
+        //    foreach (var challenge in challenges.Result)
+        //    {
+        //        //if start date is ahead of current date challenge must be archived
+        //        if (challenge.endDate < DateTime.Now)
+        //        {
+        //            challenge.IsArchived = true;
+        //            await _context.SaveChangesAsync();
+        //        }
+        //        //if start date is ahead of current date challenge must be archived
+        //        else if(challenge.startDate > DateTime.Now)
+        //        {
+        //            challenge.IsArchived = true;
+        //            await _context.SaveChangesAsync();
+        //        }
+        //    }
 
-        }
+        //}
 
 
            
