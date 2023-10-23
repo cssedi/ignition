@@ -62,13 +62,14 @@ namespace BMWIgnition_API.Controllers
         // POST: api/PrizeCategory
         [Authorize(AuthenticationSchemes = "Bearer", Roles = "ADMIN")]
         [HttpPost]
-        public async Task<ActionResult<PrizeCategory>> CreatePrizeCategory(PrizeCategoryDto prizeCategoryDto)
+        public async Task<ActionResult<PrizeCategory>> CreatePrizeType(PrizeCategoryDto prizeCategoryDto)
         {
-            var prizeCategory = new PrizeCategory
+            var prizeCategory = new PrizeType
             {
                 Name = prizeCategoryDto.PrizeCategoryName,
+                PrizeCategoryID = 1
             };
-            _context.PrizeCategories.Add(prizeCategory);
+            _context.PrizeTypes.Add(prizeCategory);
             await _context.SaveChangesAsync();
 
             var name = prizeCategoryDto.PrizeCategoryName;
@@ -97,8 +98,9 @@ namespace BMWIgnition_API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePrizeCategory([FromRoute]int id, [FromBody]PrizeCategoryDto prizeCategoryDto)
         {
-            var prizeCategory = _context.PrizeCategories.Find(id);
+            var prizeCategory = _context.PrizeTypes.Find(id);
             prizeCategory.Name = prizeCategoryDto.PrizeCategoryName;
+            prizeCategory.PrizeCategoryID = 1;
             _context.SaveChanges();
 
 
@@ -144,13 +146,13 @@ namespace BMWIgnition_API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePrizeCategory(int id)
         {
-            var prizeCategory = await _context.PrizeCategories.FindAsync(id);
+            var prizeCategory = await _context.PrizeTypes.FindAsync(id);
             if (prizeCategory == null)
             {
                 return NotFound();
             }
 
-            _context.PrizeCategories.Remove(prizeCategory);
+            _context.PrizeTypes.Remove(prizeCategory);
             await _context.SaveChangesAsync();
 
             var name = prizeCategory.Name;
