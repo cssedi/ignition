@@ -18,10 +18,23 @@ namespace BMWIgnition_API.Controllers
         }
 
         [HttpGet("Get")]
-        public IActionResult GetAllHelp()
+        public async Task<IActionResult> GetAllHelp()
         {
-            var help = _context.Helps.Include(x => x.Location).ToList();
-            return Ok(help);
+            //execute stored procedure
+            var helps = await _context.Helps.FromSqlRaw("EXEC GetAllHelps").ToListAsync();
+            //stored procedure SQL script
+            {
+                //CREATE PROCEDURE GetAllHelps
+                //AS
+                //SELECT* FROM Helps
+                //GO;
+            }
+            //if stored proc fails
+            if (helps == null || helps.Count == 0)
+            {
+                helps = await _context.Helps.ToListAsync();
+            }
+            return Ok(helps);
         }
 
         [HttpGet("GetLocations")]
